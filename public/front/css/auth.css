@@ -1,0 +1,107 @@
+body{
+    background: url(http://mymaplist.com/img/parallax/back.png);
+    background-color: #444;
+    background: url(http://mymaplist.com/img/parallax/pinlayer2.png),url(http://mymaplist.com/img/parallax/pinlayer1.png),url(http://mymaplist.com/img/parallax/back.png);
+}
+
+/* Navigation
+--------------------------------------------------------------------------------*/
+.navigation{
+    background-color: #585858;
+}
+
+.navigation .auth{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.navigation .socialNetwork h2{
+    margin-top: 0px;
+    color: white;
+}
+
+.navigation .formulaireAuth .emailAuth,
+.navigation .formulaireAuth .passwordAuth{
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+.navigation .formulaireAuth .connexion{
+    padding-bottom: 5px;
+}
+
+.navigation .formulaireAuth .rememberMeAuth{
+    padding-right: 15px;
+    color: white;
+}
+
+/* Langue
+--------------------------------------------------------------------------------*/
+.selectLanguage{
+    text-align: right;
+    margin-top: 3px;
+}
+
+.btnSelectLanguage{
+    height: 34px;
+}
+
+.icon-small
+{
+    height:18px;
+    margin:0;
+    padding:0;
+}
+
+.icon-medium
+{
+    height:22px;
+    margin:0;
+    padding:0;
+}
+
+/* Content
+--------------------------------------------------------------------------------*/
+#wrapper_top{
+    height: 575px;
+    opacity: .5;
+    position: relative;
+    z-index: 0;
+}
+
+#content{
+    position: absolute;
+    z-index: 2;
+    color: #ffffff;
+}
+
+#wrapper_bottom{
+    z-index: -1;
+    top: 0;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+/* Footer
+--------------------------------------------------------------------------------*/
+.footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer a{
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;
+}
+
+/* Content Auth
+--------------------------------------------------------------------------------*/
+.vertical-offset-100{
+    padding-top:0px;
+}

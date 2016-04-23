@@ -1,0 +1,31 @@
+<?php
+
+	return [
+		'email' 		  	=> 'Email',
+		'emailRequis'		=> 'Email requis',
+		'password'			=> 'Password',
+		'passwordRequis'	=> 'Password requis',
+		'confirmationPassword' => 'Confirmation Password',
+		'confirmationPasswordRequis' => 'Confirmation Password requis',
+		'errorConfirmPassword'	=> 'Le mot de passe et le mot de passe de confirmation doivent être identiques',
+		'oldPassword'		=> 'Ancien Password',
+		'oldPasswordRequis'	=> 'Ancien Password requis',
+		'successNewConfirmPassword'	=> 'Mot de passe mis à jour',
+		'rememberMe'		=> 'Remember Me',
+		'motDePasseOublie'	=> 'Forgotten password',
+		'ReInitialisationMdp' 	=> 'Ré-initialisation du mot de passe',
+		'connection' 		=> 'Connection',
+		'valider' 			=> 'Validation',
+		'aPropos'	 	  	=> 'About',
+		'aide'			  	=> 'Help',
+		'cgu' 			  	=> 'General terms of utlisations',
+		'confidentialite' 	=> 'Confidentiality',
+		'developpeurs'		=> 'Developers',
+		'forum'				=> 'Forum',
+		'faq'				=> 'Faq',
+		'copyright'			=> 'Copyright',
+		'erreurAuth'		=> 'These credentials do not match our records.',
+		'erreurEMailPassword'  		=> 'Le mail saisi ne correspond à aucun compte',
+		'successEMailPassword' 		=> 'Un email vous permettant de réinitialiser votre mot de passe vous a été envoyé',
+		'erreurEMailOldPassword'	=> 'Email ou ancien mot de passe saisi non valide'
+	];
