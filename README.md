@@ -1,7 +1,6 @@
 # Outil de base développer sur Laravel Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
 Hello, Cette outils dois permettre à n'importe qu'elle personne qui souhaite créer un site internet avec Laravel Framework
