@@ -6,6 +6,6 @@
 return[
     'role_customer'=>'1',
     'salt'=>'saltsaltsalt',
-    'nom_code'=>'Digitheque',
-    'nom_code_miniature'=>'Digit',
+    'nom_code'=>'Base_laravel_dev',
+    'nom_code_miniature'=>'B_L_D',
 ];

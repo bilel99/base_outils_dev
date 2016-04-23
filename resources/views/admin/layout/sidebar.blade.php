@@ -14,7 +14,7 @@
         <div class="pull-left info">
             <p>{{substr(Auth::user()->nom, 0, 1)}} {{Auth::user()->prenom}}</p>
 
-            <a href="{{route('digitheque.front')}}"><i class="fa fa-circle text-success"></i> Retour sur le site web</a>
+            <a href=""><i class="fa fa-circle text-success"></i> Retour sur le site web</a>
         </div>
     </div>
     <!-- search form -->
@@ -40,69 +40,6 @@
             <ul class="treeview-menu">
                 <li class="active"><a href="{{ route('users.index') }}"><i class="fa fa-list"></i>Liste</a></li>
                 <li><a href="{{ route('users.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-            </ul>
-        </li>
-
-
-
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-puzzle-piece"></i> <span>Module</span> <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="index.html"><i class="fa fa-list-ol"></i>Liste</a></li>
-                <li class="active"><a href="index2.html"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-            </ul>
-        </li>
-
-
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-book"></i> <span>Chapitre</span> <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="index.html"><i class="fa fa-list-ol"></i>Liste</a></li>
-                <li class="active"><a href="index2.html"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-            </ul>
-        </li>
-
-
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-file-text"></i> <span>Ressource</span> <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="index.html"><i class="fa fa-list-ol"></i>Liste</a></li>
-                <li class="active"><a href="index2.html"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-            </ul>
-        </li>
-
-
-
-
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-eye"></i> <span>Details de la Ressource</span> <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="index.html"><i class="fa fa-list-ol"></i>Liste</a></li>
-                <li class="active"><a href="index2.html"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-            </ul>
-        </li>
-
-
-
-
-
-
-
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-newspaper-o"></i> <span>Actualité</span> <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li class="active"><a href="{{ route('actu.index') }}"><i class="fa fa-list"></i>Liste</a></li>
-                <li><a href="{{ route('actu.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
             </ul>
         </li>
 
