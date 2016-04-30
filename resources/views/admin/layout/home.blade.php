@@ -60,8 +60,11 @@
 
 
         @yield('footer')
-        <!-- jQuery 2.1.4 -->
-        <script src="{{ asset('admin/AdminLTE-2.3.0/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
+        <!-- jQuery 2.1.3 -->
+        <script src="{{ asset('admin/AdminLTE-2.3.0/plugins/jQuery/jQuery2.1.3.min.js') }}"></script>
+        <!-- jQueryUI 1.11.4 -->
+        <script src="{{ asset('admin/AdminLTE-2.3.0/plugins/jQueryUI/jQueryUi1.11.4.min.js') }}"></script>
+
         <!-- Bootstrap 3.3.5 -->
         <script src="{{ asset('admin/AdminLTE-2.3.0/bootstrap/js/bootstrap.min.js') }}"></script>
         <!-- FastClick -->

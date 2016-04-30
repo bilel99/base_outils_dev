@@ -4,6 +4,9 @@
 
 @section('content')
 
+    <script src="{{ asset('admin/ajax/notif/deleteNotif.js') }}" type="text/javascript"></script>
+
+
     <section class="content-header">
         <h1>
             Notifications
@@ -23,11 +26,20 @@
                 <div>
                     @include('admin.layout.success')
 
+                    <script src="{{ asset('plugins/notificationJs/notie.js') }}" type="text/javascript"></script>
+                    <div id="message_info"></div>
+
+                </div>
+
+                <div id="btn_delete">
+                    {!! Form::open(array('route' => array('notifications.deleteAll'), 'method' => 'post', 'id'=>'form-delete')) !!}
+                    <center><a type="submit" class="fa fa-trash-o fa-2x btn-delete"></a></center>
+                    {!!  Form::close() !!}
                 </div>
 
                 <div id="table1">
                     <div class="box-body" style="overflow: auto;">
-                        <table class="datatable table table-bordered table-striped" style="overflow: auto;" >
+                        <table class="datatable table table-bordered table-striped" id="tblCustomers" style="overflow: auto;" >
                             <thead>
                             <tr>
                                 <th>ID</th>
@@ -48,7 +60,7 @@
                                 <th>created_at</th>
                             </tr>
                             </tfoot>
-                            <tbody>
+                            <tbody id="content_show">
                             @foreach($notif as $row)
                                 <tr>
                                     <td>{{$row->id}}</td>
@@ -61,13 +73,9 @@
 
                             @endforeach
 
-                            {!! Form::open(array('route' => array('notifications.deleteAll'), 'method' => 'put')) !!}
-                            <center><a type="submit" class="fa fa-archive fa-2x "></a></center>
-                            {!!  Form::close() !!}
-
                             </tbody>
                         </table>
-                        <div style="margin-left: 40%;" class="paginate">
+                        <div style="margin-left: 40%;" class="paginate" id="paginate_show">
                             {!!$notif->render()!!}
                         </div>
                     </div><!-- /.box-body -->

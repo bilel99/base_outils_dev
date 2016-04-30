@@ -1,9 +1,6 @@
 /**
  * Created by bilel on 13/03/2016.
  */
-/**
- * Created by bilel on 12/03/2016.
- */
 
 
 /**
@@ -11,8 +8,9 @@
  */
 
 $(document).ready(function(){
+
     var row = $(this).parents('tr');
-    var url = "http://digitheque/users";
+    var url = 'users';
 
     $.get(url, function(result){
         $.each(result.info, function(){
@@ -20,10 +18,16 @@ $(document).ready(function(){
                 $('#valable_'+this.id).hide();
                 $('#trash_'+this.id).hide();
                 $('#valable_'+this.id).toggle();
+
+                // Affichage du message avec notiJs
+                $('#message_info').append(notie.alert(1, result.message, 5));
             }else if(this.statut == 'Actif'){
                 $('#valable_'+this.id).hide();
                 $('#trash_'+this.id).hide();
                 $('#trash_'+this.id).toggle();
+
+                // Affichage du message avec notiJs
+                $('#message_info').append(notie.alert(1, result.message, 5));
             }
         });
 
@@ -56,10 +60,16 @@ $(document).ready(function(){
                     $('#valable_'+this.id).hide();
                     $('#trash_'+this.id).hide();
                     $('#valable_'+this.id).toggle();
+
+                    // Affichage du message avec notiJs
+                    $('#message_info').append(notie.alert(1, result.message, 5));
                 }else if(this.statut == 'Actif'){
                     $('#valable_'+this.id).hide();
                     $('#trash_'+this.id).hide();
                     $('#trash_'+this.id).toggle();
+
+                    // Affichage du message avec notiJs
+                    $('#message_info').append(notie.alert(1, result.message, 5));
                 }
 
             });
@@ -93,10 +103,16 @@ $(document).ready(function(){
                     $('#valable_'+this.id).hide();
                     $('#trash_'+this.id).hide();
                     $('#valable_'+this.id).toggle();
+
+                    // Affichage du message avec notiJs
+                    $('#message_info').append(notie.alert(1, result.message, 5));
                 }else if(this.statut == 'Actif'){
                     $('#valable_'+this.id).hide();
                     $('#trash_'+this.id).hide();
                     $('#trash_'+this.id).toggle();
+
+                    // Affichage du message avec notiJs
+                    $('#message_info').append(notie.alert(1, result.message, 5));
                 }
 
             });
@@ -108,33 +124,10 @@ $(document).ready(function(){
         });
     });
 });
+
+
+
+
 /**
  * FIN
  */
-
-
-
-
-
-$(document).on('click','.pagination a', function(e){
-    e.preventDefault;
-    var page = $(this).attr('href').split('page=')[1];
-    var url = "http://digitheque/users";
-
-    $.ajax({
-        url: url,
-        data: {page: page},
-        type: 'GET',
-        dataType: 'json',
-        success: function(data){
-            $('.users_page').html(data.mavue);
-        }
-    });
-    return false;
-});
-
-
-
-
-
-

@@ -1,11 +1,9 @@
 <!-- Import de lib -->
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-
-
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<!-- jQuery 2.1.3 -->
+<script src="{{ asset('admin/AdminLTE-2.3.0/plugins/jQuery/jQuery2.1.3.min.js') }}"></script>
+<!-- jQueryUI 1.11.4 -->
+<script src="{{ asset('admin/AdminLTE-2.3.0/plugins/jQueryUI/jQueryUi1.11.4.min.js') }}"></script>
 
 
 
@@ -20,7 +18,7 @@
 
 
 <!-- Logo -->
-<a href="index2.html" class="logo">
+<a href="{{route('bo')}}" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
     <span class="logo-mini"><b>{{\Config::get('constante.nom_code_miniature')}}</b></span>
     <!-- logo for regular state and mobile devices -->

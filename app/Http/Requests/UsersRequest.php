@@ -26,6 +26,8 @@ class UsersRequest extends Request
             'nom.required'              => Lang::get('global.nomRequis'),
             'prenom.required'           => Lang::get('global.prenomRequis'),
             'email.required'            => Lang::get('global.emailRequis'),
+            'password.required'         => Lang::get('global.passwordRequis'),
+            'password_user.required'    => Lang::get('global.passwordRequis'),
             'id_ville.required'         => Lang::get('global.villeRequis')
         ];
     }
@@ -42,7 +44,9 @@ class UsersRequest extends Request
             'nom'               => 'required',
             'prenom'            => 'required',
             'email'             => 'required|email',
-            'id_ville'          => 'required'
+            'password'          => '',
+            'password_user'     => '',
+            'id_ville'          => ''
         ];
     }
 }

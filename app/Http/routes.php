@@ -51,15 +51,20 @@ Route::get('/administration', ['as' => 'bo', 'uses' => 'Admin\AdminPageControlle
 
 Route::post('search', ['as' => 'actu.search', 'uses' => 'Admin\ActuController@search']);
 
+
 Route::resource('gestionLanguage', 'Admin\GestionLanguageController');
 Route::put('majfiles/{id}', ['as' => 'gestionLanguage.majfiles', 'uses' => 'Admin\GestionLanguageController@majfiles']);
 
-Route::resource('notifications', 'Admin\NotificationController');
-Route::put('delete-notifications', ['as' => 'notifications.deleteAll', 'uses' => 'Admin\NotificationController@deleteAll']);
 
+Route::resource('notifications', 'Admin\NotificationController');
+Route::post('delete_notifications', ['as' => 'notifications.deleteAll', 'uses' => 'Admin\NotificationController@deleteAll']);
+
+
+Route::resource('users', 'Admin\UsersController');
 Route::post('userssearch', ['as' => 'users.search', 'uses' => 'Admin\UsersController@search']);
 Route::post('users/{users}', ['as' => 'users.actif', 'uses' => 'Admin\UsersController@actif']);
-Route::resource('users', 'Admin\UsersController');
+Route::put('gestion_password/{users}', ['as' => 'utilisateur.gestion_password', 'uses' => 'Admin\UsersController@gestion_password']);
+
 
 Route::resource('langues', 'Admin\LanguesController');
 

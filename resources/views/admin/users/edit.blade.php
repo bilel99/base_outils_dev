@@ -57,25 +57,32 @@
                                                         <div class="col-lg-12">
 
 
-
                                                             <!-- List Select via BDD (function List(-laravel-)) -->
-                                                            <div class="form-group">
-                                                                {!! Form::label('id_pays', 'pays *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                <select id="id_pays" name="id_pays" class="form-control">
-                                                                    <option value=""><?=$pays_choix[0]->nom_fr_fr?></option>
-                                                                </select>
-                                                                {{-- Form::select('id_pays', $pays, 'id_pays', ['class'=>'form-control']) --}}
-                                                            </div>
+                                                            @if($users->id_villes != NULL)
+                                                                <div id="iciPays" class="form-group" style="display: none;">
+                                                                    <div class="form-group">
+                                                                        {!! Form::label('id_pays', 'pays *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                        <select id="id_pays" name="id_pays" class="form-control">
+                                                                            <option value=""><?=$pays_choix[0]->nom_fr_fr?></option>
+                                                                        </select>
+                                                                        {{-- Form::select('id_pays', $pays, 'id_pays', ['class'=>'form-control']) --}}
+                                                                    </div>
+                                                                </div>
+                                                            @endif
                                                             <!-- Fin function List -->
 
 
                                                             <!-- List Select via BDD (function List(-laravel-)) -->
-                                                            <div class="form-group">
-                                                                {!! Form::label('id_ville', 'ville *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                <select id="id_ville" name="id_ville" class="form-control">
-                                                                </select>
-                                                                {{-- Form::select('id_ville', $ville, 'id_ville', ['class'=>'form-control']) --}}
-                                                            </div>
+                                                            @if($users->id_villes != NULL)
+                                                                <div id="iciVille" class="form-group" style="display: none;">
+                                                                    <div class="form-group">
+                                                                        {!! Form::label('id_ville', 'ville *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                        <select id="id_ville" name="id_ville" class="form-control">
+                                                                        </select>
+                                                                        {{-- Form::select('id_ville', $ville, 'id_ville', ['class'=>'form-control']) --}}
+                                                                    </div>
+                                                                </div>
+                                                            @endif
                                                             <!-- Fin function List -->
 
 
@@ -83,7 +90,7 @@
                                                             <!-- List Select via BDD (function List(-laravel-)) -->
                                                             <div class="form-group">
                                                                 {!! Form::label('id_role', 'role *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::select('id_role', $role, $users->id_role, ['class'=>'form-control']) !!}
+                                                                {!! Form::select('id_role', $role, $users->id_roles_users, ['class'=>'form-control']) !!}
                                                             </div>
                                                             <!-- Fin function List -->
 

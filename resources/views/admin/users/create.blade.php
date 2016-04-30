@@ -67,6 +67,29 @@
 
 
                                                             <!-- List Select via BDD (function List(-laravel-)) -->
+                                                            <div id="iciPays" class="form-group" style="display: none;">
+                                                                {!! Form::label('id_pays', 'pays *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                <select id="id_pays" name="id_pays" class="form-control">
+                                                                    <option value="">-- Pays --</option>
+                                                                </select>
+                                                                {{-- Form::select('id_pays', $pays, 'id_pays', ['class'=>'form-control']) --}}
+                                                            </div>
+                                                            <!-- Fin function List -->
+
+
+                                                            <!-- List Select via BDD (function List(-laravel-)) -->
+                                                            <div id="iciVille" class="form-group" style="display: none;">
+                                                                {!! Form::label('id_ville', 'ville *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                <select id="id_ville" name="id_ville" class="form-control">
+                                                                    <option value="">-- Ville--</option>
+                                                                </select>
+                                                                {{-- Form::select('id_ville', $ville, 'id_ville', ['class'=>'form-control']) --}}
+                                                            </div>
+                                                            <!-- Fin function List -->
+
+
+
+                                                            <!-- List Select via BDD (function List(-laravel-)) -->
                                                             <div class="form-group">
                                                                 {!! Form::label('id_role', 'role *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
                                                                 {!! Form::select('id_role', $role, '', ['class'=>'form-control']) !!}
@@ -103,6 +126,11 @@
                                                 {!! Form::text('email', '', array('class'=>'form-control', 'name'=>'email', 'placeholder' => 'email', 'required'=>'required')) !!}
                                             </div>
 
+                                            <div id="password" class="form-group" style="display: none;">
+                                                {!! Form::label('password', 'password *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                {!! Form::password('password', array('class'=>'form-control', 'name'=>'password', 'placeholder' => 'password', 'required'=>'required')) !!}
+                                            </div>
+
 
 
                                         </div>
@@ -120,7 +148,7 @@
 
                             {!! Form::close() !!}
 
-                            
+
                         </div>
                     </div>
 
@@ -130,15 +158,15 @@
         </div>
     </div>
 
-@stop
+    @stop
 
 
 
 
-@section('footer')
+    @section('footer')
 
 
-    <!-- TINY MCE -->
+            <!-- TINY MCE -->
     <script src="{{ asset('plugins/tinymce/jquery.tinymce.min.js') }}"></script>
     <script src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>
 

@@ -20,22 +20,15 @@ $(document).ready(function(){
         if($('#id_role').val() != 2){
             $('#iciPays').fadeOut();
             $('#iciVille').fadeOut();
+            $('#password').fadeOut();
 
         }else{
             $('#iciPays').fadeIn();
             $('#iciVille').fadeIn();
+            $('#password').fadeIn();
 
         }
     });
-
-
-    if($('#id_role').val() != 2 ){
-        $('#iciPays').fadeOut();
-        $('#iciVille').fadeOut();
-    }else{
-        $('#iciPays').fadeIn();
-        $('#iciVille').fadeIn();
-    }
 
 
     var lpays = $('#id_pays');
@@ -46,10 +39,6 @@ $(document).ready(function(){
     $.get(url, function(result){
         $.each(result.pays, function(){
             lpays.append('<option value="'+ this.id +'">'+ this.nom_fr_fr +'</option>');
-        });
-
-        $.each(result.ville_choix, function(){
-            lville.append('<option id="ville_' + this.id + '" value="' + this.id + '">' + this.libelle + '</option>');
         });
 
     }).fail(function(){
