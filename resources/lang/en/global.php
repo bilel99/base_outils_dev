@@ -27,5 +27,6 @@
 		'erreurAuth'		=> 'These credentials do not match our records.',
 		'erreurEMailPassword'  		=> 'Le mail saisi ne correspond à aucun compte',
 		'successEMailPassword' 		=> 'Un email vous permettant de réinitialiser votre mot de passe vous a été envoyé',
-		'erreurEMailOldPassword'	=> 'Email ou ancien mot de passe saisi non valide'
+		'erreurEMailOldPassword'	=> 'Email ou ancien mot de passe saisi non valide',
+		'champRequis'				=> 'Champs obligatoire'
 	];

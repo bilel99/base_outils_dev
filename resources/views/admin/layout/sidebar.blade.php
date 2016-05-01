@@ -50,7 +50,21 @@
                 <i class="fa fa-language"></i> <span>Gestion de la langue</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li class="active"><a href="{{route('gestionLanguage.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                <li>
+                    <a href="#"><i class="fa fa-file-code-o"></i> Gestions des Fichiers <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('gestionLanguage.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                        <li><a href="{{ route('gestionLanguage.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-database"></i> Gestions languages <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('langues.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                        <li><a href="{{ route('langues.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+                    </ul>
+                </li>
             </ul>
         </li>
 

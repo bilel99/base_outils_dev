@@ -67,7 +67,7 @@ Route::put('gestion_password/{users}', ['as' => 'utilisateur.gestion_password', 
 
 
 Route::resource('langues', 'Admin\LanguesController');
-
+Route::post('languessearch', ['as' => 'langues.search', 'uses' => 'Admin\LanguesController@search']);
 
 
 

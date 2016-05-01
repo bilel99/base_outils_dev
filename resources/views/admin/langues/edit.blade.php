@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Pages
-            <small>Actualités - Edition</small>
+            <small>Langues - Edition</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ ucfirst(route('bo')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -12,13 +12,14 @@
         </ol>
     </section>
 
+    <link href="{{ asset('admin/css/tab.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/css/form.css') }}" rel="stylesheet">
 
     <div class="space"></div>
     <div class="container">
         <div class="row">
 
-            <div class="col-md-7 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-0">
 
                 <div>
                     @include('admin.layout.success')
@@ -27,55 +28,70 @@
                 </div>
 
                 <div class="panel panel-login">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <p>Edition d'une Actualités</p>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="col-lg-12">
 
-                                {!! Form::open(['method' => 'put', 'url' => route('actu.update', $actu->id)]) !!}
-
-
-                                <div class="form-group">
-                                    {!! Form::hidden('id_users', Auth::user()->id, array('class'=>'form-control', 'name'=>'id_users', 'placeholder' => 'id_users', 'required'=>'required')) !!}
+                    <div class="row">
+                        <div style="margin-left: 40px;" class="col-md-11 col-md-offset-0">
+                            {!! Form::open(['method' => 'put', 'url' => route('langues.update', $langues->id)]) !!}
+                            <div class="panel with-nav-tabs panel-primary">
+                                <div class="panel-heading">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#tab1primary" data-toggle="tab">Editions</a></li>
+                                    </ul>
                                 </div>
-
-                                <!-- List Select via BDD (function List(-laravel-)) -->
-                                <div class="form-group">
-                                    {!! Form::label('id_langues', 'langue *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                    {!! Form::select('id_langues', $langue, $actu->id_langues, ['class'=>'form-control']) !!}
-                                </div>
-                                <!-- Fin function List -->
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="tab1primary">
 
 
-                                <div class="form-group">
-                                    {!! Form::label('titre', 'Titre *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                    {!! Form::text('titre', $actu->titre, array('class'=>'form-control', 'name'=>'titre', 'placeholder' => 'Titre', 'required'=>'required')) !!}
-                                </div>
+                                            <div class="panel panel-login">
+                                                <div class="panel-heading">
+                                                    <div class="row">
+                                                        <p>Edition d'une Langues</p>
+                                                    </div>
+                                                    <hr>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
 
 
-                                <div class="form-group">
-                                    {!! Form::label('description', 'Description *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                    {!! Form::textarea('description', $actu->description, array('class'=>'form-control', 'name'=>'description', 'placeholder' => 'Description', 'required'=>'required')) !!}
-                                </div>
+                                                            <div class="form-group">
+                                                                {!! Form::label('code', 'code *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                {!! Form::text('code', $langues->code, array('class'=>'form-control', 'name'=>'code', 'placeholder' => 'code', 'required'=>'required')) !!}
+                                                            </div>
+
+
+                                                            <div class="form-group">
+                                                                {!! Form::label('libelle', 'libelle *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                {!! Form::text('libelle', $langues->libelle, array('class'=>'form-control', 'name'=>'libelle', 'placeholder' => 'libelle', 'required'=>'required')) !!}
+                                                            </div>
 
 
 
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-10 col-sm-offset-1">
-                                            <input type="submit" name="submit" id="submit" class="form-control btn btn-register" value="EDITION">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
+
                                     </div>
                                 </div>
-
-                                {!! Form::close() !!}
-
                             </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <input type="submit" name="submit" id="submit" class="form-control btn btn-register" value="CREATE">
+                                    </div>
+                                </div>
+                            </div>
+
+                            {!! Form::close() !!}
+
+
                         </div>
                     </div>
                 </div>
@@ -83,7 +99,7 @@
         </div>
     </div>
 
-@stop
+    @stop
 
 
 
@@ -92,10 +108,10 @@
 
 
 
-@section('footer')
+    @section('footer')
 
 
-    <!-- TINY MCE -->
+            <!-- TINY MCE -->
     <script src="{{ asset('plugins/tinymce/jquery.tinymce.min.js') }}"></script>
     <script src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>
 
