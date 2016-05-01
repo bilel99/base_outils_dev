@@ -27,7 +27,9 @@ $(document).ready(function(){
                 $('#trash_'+this.id).toggle();
 
                 // Affichage du message avec notiJs
-                $('#message_info').append(notie.alert(1, result.message, 5));
+                if(result.message != null) {
+                    $('#message_info').append(notie.alert(1, result.message, 5));
+                }
             }
         });
 
@@ -69,7 +71,9 @@ $(document).ready(function(){
                     $('#trash_'+this.id).toggle();
 
                     // Affichage du message avec notiJs
-                    $('#message_info').append(notie.alert(1, result.message, 5));
+                    if(result.message != null) {
+                        $('#message_info').append(notie.alert(1, result.message, 5));
+                    }
                 }
 
             });
@@ -112,7 +116,9 @@ $(document).ready(function(){
                     $('#trash_'+this.id).toggle();
 
                     // Affichage du message avec notiJs
-                    $('#message_info').append(notie.alert(1, result.message, 5));
+                    if(result.message != null) {
+                        $('#message_info').append(notie.alert(1, result.message, 5));
+                    }
                 }
 
             });

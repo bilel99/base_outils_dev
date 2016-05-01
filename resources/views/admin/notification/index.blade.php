@@ -64,7 +64,7 @@
                             @foreach($notif as $row)
                                 <tr>
                                     <td>{{$row->id}}</td>
-                                    <td>{{substr($row->nom, 0, 1)}} {{$row->prenom}}</td>
+                                    <td>{{substr($row->users->nom, 0, 1)}} {{$row->users->prenom}}</td>
                                     <td>{{$row->title}}</td>
                                     <td>{!! mb_strimwidth( $row->description, 0, 50, "...") !!}</td>
                                     <td>{{$row->status}}</td>

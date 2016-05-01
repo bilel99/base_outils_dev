@@ -2,4 +2,3 @@
 return[
     'langactiv' => 'English'
 ];
-

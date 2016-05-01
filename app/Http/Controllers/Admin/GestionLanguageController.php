@@ -89,13 +89,13 @@ class GestionLanguageController extends Controller
 
         // Création du fichier 1 en anglais
         $fichier1 = fopen("../resources/lang/en/" . $nom1, "w+");
-        fwrite($fichier1, $english);
+        fwrite($fichier1, htmlentities($english, ENT_QUOTES, "UTF-8"));
         fclose($fichier1);
 
 
         // Création du fichier 2 en français
         $fichier2 = fopen("../resources/lang/fr/" . $nom2, "w+");
-        fwrite($fichier2, $francais);
+        fwrite($fichier2, htmlentities($francais, ENT_QUOTES, "UTF-8"));
         fclose($fichier2);
 
 
@@ -148,13 +148,13 @@ class GestionLanguageController extends Controller
                 if($row == $id) {
                     // mise à jour des fichier en français
                     $fichier1 = fopen("../resources/lang/fr/" . $f, "w+");
-                    fwrite($fichier1, $fr);
+                    fwrite($fichier1, htmlentities($fr, ENT_QUOTES, "UTF-8"));
                     fclose($fichier1);
 
 
                     // mise à jour des fichier en anglais
                     $fichier2 = fopen("../resources/lang/en/" . $f, "w+");
-                    fwrite($fichier2, $en);
+                    fwrite($fichier2, htmlentities($en, ENT_QUOTES, "UTF-8"));
                     fclose($fichier2);
                 }
             }
