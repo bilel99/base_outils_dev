@@ -6,7 +6,7 @@
 
     <div class="users_page">
 
-        <script src="{{ asset('admin/ajax/langue/index.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('admin/ajax/newsletters/index.js') }}" type="text/javascript"></script>
         <link href="{{ asset('admin/css/search.css') }}" rel="stylesheet" type="text/css" />
 
 
@@ -14,8 +14,8 @@
         <script>
             $(function() {
                 var availableTags = [
-                    @foreach($langue as $row)
-                            "{{$row->libelle}}",
+                    @foreach($newsletters as $row)
+                            "{{$row->email}}",
                     @endforeach
                 ];
                 $( "#search" ).autocomplete({
@@ -27,12 +27,12 @@
 
         <section class="content-header">
             <h1>
-                Langues
+                Newsletters
                 <small>Liste</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{ ucfirst(route('bo')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li class="active">Langues</li>
+                <li class="active">Newsletters</li>
             </ol>
         </section>
 
@@ -53,7 +53,7 @@
                     </div>
 
                     <div class="box-header" style="overflow: auto;">
-                        {!! Form::open(array('url' => route('langues.search'), 'class'=>'search-form')) !!}
+                        {!! Form::open(array('url' => route('newsletters.search'), 'class'=>'search-form')) !!}
                         <div class="form-group has-feedback">
                             <label for="search" class="sr-only">Search</label>
                             <input type="text" class="form-control" name="search" id="search" placeholder="search">
@@ -66,12 +66,12 @@
 
                     <div id="table1">
                         <div class="box-body" style="overflow: auto;">
-                            <table class="datatable table table-bordered table-striped" style="overflow: auto;" id="matable">
+                            <table class="datatable table table-bordered table-striped" style="overflow: auto;" id="tblCustomers">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>code</th>
-                                    <th>libelle</th>
+                                    <th>langues</th>
+                                    <th>email</th>
                                     <th>created_at</th>
 
                                     <th></th>
@@ -80,27 +80,25 @@
                                 <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>code</th>
-                                    <th>libelle</th>
+                                    <th>langues</th>
+                                    <th>email</th>
                                     <th>created_at</th>
 
                                     <th></th>
                                 </tr>
                                 </tfoot>
                                 <tbody>
-                                @foreach($langue as $row)
+                                @foreach($newsletters as $row)
 
                                     <tr data-id="{{$row->id}}" id="delete_row{{$row->id}}">
                                         <td>{{$row->id}}</td>
-                                        <td>{{$row->code}}</td>
-                                        <td>{{$row->libelle}}</td>
+                                        <td>{{$row->langues->libelle}}</td>
+                                        <td>{{$row->email}}</td>
                                         <td>{{\App\Http\Controllers\Admin\AdminPageController::instanced()->formatDateComplete($row->created_at)}}</td>
 
                                         <td>
-                                            <a class="fa fa-pencil-square-o fa-2x" href="{{ route('langues.edit', $row->id) }}"></a><br />
-
                                             <div id="trash_<?=$row->id?>" style="display: none;">
-                                                {!! Form::open(['route'=>['langues.destroy', ':LANGUE_ID'], 'method' => 'DELETE', 'id'=>'form-delete']) !!}
+                                                {!! Form::open(['route'=>['newsletters.destroy', ':NEWSLETTERS_ID'], 'method' => 'DELETE', 'id'=>'form-delete']) !!}
                                                 <a style="margin-left: 0px;" href="#" class="fa fa-trash-o fa-2x btn-delete"></a>
                                                 {!! Form::close() !!}
                                             </div>
@@ -115,7 +113,7 @@
                                 </tbody>
                             </table>
                             <div style="margin-left: 40%;" class="paginate">
-                                {!! $langue->render() !!}
+                                {!! $newsletters->render() !!}
                             </div>
                         </div><!-- /.box-body -->
                     </div>

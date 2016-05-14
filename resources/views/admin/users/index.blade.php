@@ -111,7 +111,7 @@
                                         <td>{{$row->adresse}}</td>
                                         <td>{{$row->telephone}}</td>
                                         <td id="statut_<?=$row->id?>">{{$row->statut}}</td>
-                                        <td>{{$row->created_at}}</td>
+                                        <td>{{\App\Http\Controllers\Admin\AdminPageController::instanced()->formatDateComplete($row->created_at)}}</td>
 
                                         <td>
                                             <a class="fa fa-pencil-square-o fa-2x" href="{{ route('users.edit', $row->id) }}"></a><br />
@@ -186,7 +186,7 @@
                                                         <p>adresse : {{$row->adresse}}</p>
                                                         <p>telephone : {{$row->telephone}}</p>
                                                         <p>statut : {{$row->statut}}</p>
-                                                        <p>écrit le : {{$row->created_at}}</p>
+                                                        <p>écrit le : {{\App\Http\Controllers\Admin\AdminPageController::instanced()->formatDateComplete($row->created_at)}}</p>
                                                         <br>
                                                     </center>
                                                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Dates;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,6 +10,17 @@ use App\Http\Controllers\Controller;
 
 class AdminPageController extends Controller
 {
+
+
+    /**
+     * @return Dates
+     */
+    public static function instanced(){
+        $dates = new Dates();
+        return $dates;
+    }
+
+
     /**
      * Display a listing of the resource.
      *

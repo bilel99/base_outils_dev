@@ -8,4 +8,5 @@ return[
     'register_descr'=> 'Merci pour votre inscription',
     'register_descr2'=> 'Votre compte à été modifier par un administrateur',
     'newPass'=>'Nouveau mot de passe',
+    'emails'=> 'Envoie emails',
 ];

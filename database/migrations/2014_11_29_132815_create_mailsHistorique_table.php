@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNewslettersTable extends Migration
+class CreateMailsHistoriqueTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,18 @@ class CreateNewslettersTable extends Migration
      */
     public function up()
     {
-        Schema::create('newsletters', function (Blueprint $table) {
+        Schema::create('mails_historique', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('id_langues')->unsigned();
-            $table->string('email', 255);
+            $table->integer('id_langues')->unsigned()->nullable();
+            $table->string('type', 255);
+            $table->string('nom', 255);
+            $table->string('exp_nom', 255);
+            $table->string('exp_email', 255);
+            $table->string('sujet', 255);
+            $table->text('contenue');
             $table->timestamps();
 
             $table->foreign('id_langues')->references('id')->on('langues');
-
         });
     }
 
@@ -30,6 +34,6 @@ class CreateNewslettersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('newsletters');
+        Schema::drop('mails_historique');
     }
 }

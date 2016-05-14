@@ -60,6 +60,24 @@ Route::resource('notifications', 'Admin\NotificationController');
 Route::post('delete_notifications', ['as' => 'notifications.deleteAll', 'uses' => 'Admin\NotificationController@deleteAll']);
 
 
+Route::resource('newsletters', 'Admin\NewslettersController');
+Route::post('newsletterssearch', ['as' => 'newsletters.search', 'uses' => 'Admin\NewslettersController@search']);
+
+
+Route::resource('mails', 'Admin\MailsController');
+Route::post('mailssearch', ['as' => 'mails.search', 'uses' => 'Admin\MailsController@search']);
+Route::post('mails/{mails}', ['as' => 'mails.actif', 'uses' => 'Admin\MailsController@actif']);
+
+
+Route::resource('mailsHistorique', 'Admin\MailsHistoriqueController');
+Route::post('delete_historiqueMails', ['as' => 'mailsHistorique.deleteAll', 'uses' => 'Admin\MailsHistoriqueController@deleteAll']);
+
+
+Route::get('envoieMails', ['as' => 'envoieMails.index', 'uses' => 'Admin\EnvoieMailsController@index']);
+Route::post('envoieMailsSend/{users}', ['as' => 'envoieMails.send', 'uses' => 'Admin\EnvoieMailsController@send']);
+Route::post('envoieMailsAll', ['as' => 'envoieMails.all', 'uses' => 'Admin\EnvoieMailsController@all']);
+
+
 Route::resource('users', 'Admin\UsersController');
 Route::post('userssearch', ['as' => 'users.search', 'uses' => 'Admin\UsersController@search']);
 Route::post('users/{users}', ['as' => 'users.actif', 'uses' => 'Admin\UsersController@actif']);
@@ -69,6 +87,8 @@ Route::put('gestion_password/{users}', ['as' => 'utilisateur.gestion_password', 
 Route::resource('langues', 'Admin\LanguesController');
 Route::post('languessearch', ['as' => 'langues.search', 'uses' => 'Admin\LanguesController@search']);
 
+
+Route::resource('crons', 'Admin\CronsController');
 
 
 

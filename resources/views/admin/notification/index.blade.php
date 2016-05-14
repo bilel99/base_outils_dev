@@ -68,7 +68,7 @@
                                     <td>{{$row->title}}</td>
                                     <td>{!! mb_strimwidth( $row->description, 0, 50, "...") !!}</td>
                                     <td>{{$row->status}}</td>
-                                    <td>{{$row->created_at}}</td>
+                                    <td>{{\App\Http\Controllers\Admin\AdminPageController::instanced()->formatDateComplete($row->created_at)}}</td>
                                 </tr>
 
                             @endforeach

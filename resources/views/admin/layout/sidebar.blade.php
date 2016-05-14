@@ -70,6 +70,58 @@
 
 
 
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-newspaper-o"></i> <span>Gestions des Newsletters</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li class="active"><a href="{{route('newsletters.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+            </ul>
+        </li>
+
+
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-envelope-o"></i> <span>Gestions des Email</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <a href="#"><i class="fa fa-paper-plane-o"></i> Email <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('mails.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                        <li><a href="{{ route('mails.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-history"></i> Historiques des Emails <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('mailsHistorique.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-share"></i> Envoie de mails <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('envoieMails.index')}}"><i class="fa fa-list"></i>Gestions</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-connectdevelop"></i> <span>Gestions des crons</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li class="active"><a href="{{route('crons.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+            </ul>
+        </li>
+
+
 
         <li class="treeview">
             <a href="#">
@@ -84,6 +136,15 @@
 
 
 
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-cogs"></i> <span>Gestions des paramétres</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li class="active"><a href="{{route('notifications.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                <li><a href="{{ route('langues.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+            </ul>
+        </li>
 
 
 

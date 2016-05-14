@@ -59,6 +59,18 @@ class RouteServiceProvider extends ServiceProvider
             App::abort(500);
         });
 
+        $router->model('newsletters', 'App\Newsletters', function(){
+            App::abort(500);
+        });
+
+        $router->model('mails', 'App\Mails', function(){
+            App::abort(500);
+        });
+
+        $router->model('mailsHistorique', 'App\MailsHistorique', function(){
+            App::abort(500);
+        });
+
 
 
 

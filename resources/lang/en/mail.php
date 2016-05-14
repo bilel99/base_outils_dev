@@ -8,4 +8,5 @@ return[
     'register_descr' => 'Thank you for your registration',
     'register_descr2' => 'Your account is updated a Administrator',
     'newPass'=>'New password',
+    'emails'=> 'send emails',
 ];

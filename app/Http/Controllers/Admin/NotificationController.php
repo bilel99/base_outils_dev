@@ -60,6 +60,15 @@ class NotificationController extends Controller
             $n->delete();
         }
 
+        // Alimentation de la table notificationHistory
+        $noti = new \App\NotificationHistory;
+        $noti->id_users = Auth::user()->id;
+        $noti->id_notif;
+        $noti->title = 'Un historique de notification à été supprimé';
+        $noti->description = '';
+        $noti->status = 1;
+        $noti->save();
+
         $message = "suppression effectué avec succès";
         if($request->ajax()){
             return response()->json([

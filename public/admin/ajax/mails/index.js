@@ -1,8 +1,6 @@
 /**
- * Created by bilel on 13/03/2016.
+ * Created by bilel on 04/05/2016.
  */
-
-
 /**
  * AJAX GET USERS
  */
@@ -10,11 +8,11 @@
 $(document).ready(function(){
 
     var row = $(this).parents('tr');
-    var url = 'users';
+    var url = 'mails';
 
     $.get(url, function(result){
         $.each(result.info, function(){
-            if(this.statut == 'Archivé'){
+            if(this.statut == 'inactif'){
                 $('#valable_'+this.id).hide();
                 $('#trash_'+this.id).hide();
                 $('#valable_'+this.id).toggle();
@@ -50,7 +48,7 @@ $(document).ready(function(){
         var row = $(this).parents('tr');
         var id = row.data('id');
         var form = $('#form-delete');
-        var url = form.attr('action').replace(':USERS_ID', id);
+        var url = form.attr('action').replace(':MAILS_ID', id);
         var data = form.serialize();
 
         $.post(url, data, function(result){
@@ -58,7 +56,7 @@ $(document).ready(function(){
                 $('#statut_'+this.id).html(
                     '<td>'+ this.statut +'</td>');
 
-                if(this.statut == 'Archivé'){
+                if(this.statut == 'inactif'){
                     $('#valable_'+this.id).hide();
                     $('#trash_'+this.id).hide();
                     $('#valable_'+this.id).toggle();
@@ -94,7 +92,7 @@ $(document).ready(function(){
         var roww = $(this).parents('tr');
         var idd = roww.data('id');
         var formm = $('#form-actif');
-        var urll = formm.attr('action').replace(':USERS_ID', idd);
+        var urll = formm.attr('action').replace(':MAILS_ID', idd);
         var dataa = formm.serialize();
 
 
@@ -103,7 +101,7 @@ $(document).ready(function(){
                 $('#statut_'+this.id).html(
                     '<td>'+ this.statut +'</td>');
 
-                if(this.statut == 'Archivé'){
+                if(this.statut == 'inactif'){
                     $('#valable_'+this.id).hide();
                     $('#trash_'+this.id).hide();
                     $('#valable_'+this.id).toggle();
@@ -130,10 +128,3 @@ $(document).ready(function(){
         });
     });
 });
-
-
-
-
-/**
- * FIN
- */
