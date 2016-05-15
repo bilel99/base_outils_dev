@@ -66,7 +66,7 @@
                             </tfoot>
                             <tbody id="content_show">
                             @foreach($mailsHistorique as $row)
-                                <tr id="trashTr_<?=$row->id?>">
+                                <tr data-id="{{$row->id}}" id="trashTr_<?=$row->id?>">
                                     <td>{{$row->id}}</td>
                                     <td>{{$row->langues->libelle}}</td>
                                     <td>{{$row->type}}</td>
@@ -84,8 +84,8 @@
 
 
                                         <div id="trash_<?=$row->id?>" style="display: none;">
-                                            {!! Form::open(['route'=>['mailsHistorique.destroy', ':MAILSHISTORIQUE_ID'], 'method' => 'DELETE', 'id'=>'form-delete']) !!}
-                                            <a style="margin-left: 0px;" href="#" class="fa fa-trash-o fa-2x btn-delete"></a>
+                                            {!! Form::open(['route'=>['mailsHistorique.destroy', ':MAILSHISTORIQUE_ID'], 'method' => 'DELETE', 'id'=>'form-delete2']) !!}
+                                            <a style="margin-left: 0px;" href="#" class="fa fa-trash-o fa-2x btn-delete2"></a>
                                             {!! Form::close() !!}
                                         </div>
 

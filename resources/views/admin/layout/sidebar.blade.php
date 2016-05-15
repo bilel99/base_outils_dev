@@ -47,35 +47,22 @@
 
         <li class="treeview">
             <a href="#">
-                <i class="fa fa-language"></i> <span>Gestion de la langue</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-newspaper-o"></i> <span>Gestions des Newsletters</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li>
-                    <a href="#"><i class="fa fa-file-code-o"></i> Gestions des Fichiers <i class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li class="active"><a href="{{route('gestionLanguage.index')}}"><i class="fa fa-list"></i>Liste</a></li>
-                        <li><a href="{{ route('gestionLanguage.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#"><i class="fa fa-database"></i> Gestions languages <i class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li class="active"><a href="{{route('langues.index')}}"><i class="fa fa-list"></i>Liste</a></li>
-                        <li><a href="{{ route('langues.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-                    </ul>
-                </li>
+                <li class="active"><a href="{{route('newsletters.index')}}"><i class="fa fa-list"></i>Liste</a></li>
             </ul>
         </li>
 
 
 
+
         <li class="treeview">
             <a href="#">
-                <i class="fa fa-newspaper-o"></i> <span>Gestions des Newsletters</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-exclamation"></i> <span>Notifications</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li class="active"><a href="{{route('newsletters.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                <li class="active"><a href="{{route('notifications.index')}}"><i class="fa fa-list"></i>Liste</a></li>
             </ul>
         </li>
 
@@ -112,26 +99,32 @@
 
 
 
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-connectdevelop"></i> <span>Gestions des crons</span> <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li class="active"><a href="{{route('crons.index')}}"><i class="fa fa-list"></i>Liste</a></li>
-            </ul>
-        </li>
+
 
 
 
         <li class="treeview">
             <a href="#">
-                <i class="fa fa-exclamation"></i> <span>Notifications</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-language"></i> <span>Gestion de la langue</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li class="active"><a href="{{route('notifications.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                <li>
+                    <a href="#"><i class="fa fa-file-code-o"></i> Gestions des Fichiers <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('gestionLanguage.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                        <li><a href="{{ route('gestionLanguage.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-database"></i> Gestions languages <i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{route('langues.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                        <li><a href="{{ route('langues.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+                    </ul>
+                </li>
             </ul>
         </li>
-
 
 
 
@@ -139,12 +132,60 @@
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-cogs"></i> <span>Gestions des paramétres</span> <i class="fa fa-angle-left pull-right"></i>
+
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cogs"></i> <span>Création de paramètre</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href=""><i class="fa fa-list"></i>Liste</a></li>
+                            <li><a href=""><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-connectdevelop"></i> <span>Gestions des crons</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href="{{route('crons.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-at"></i> <span>Gestions des redirection</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href=""><i class="fa fa-list"></i>Liste</a></li>
+                            <li><a href=""><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-rocket"></i> <span>Vider le cache</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href=""><i class="fa fa-eraser"></i>vider</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </a>
-            <ul class="treeview-menu">
-                <li class="active"><a href="{{route('notifications.index')}}"><i class="fa fa-list"></i>Liste</a></li>
-                <li><a href="{{ route('langues.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-            </ul>
+
         </li>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

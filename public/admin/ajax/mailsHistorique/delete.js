@@ -38,7 +38,7 @@ $(document).ready(function(){
 
         var row = $(this).parents('tr');
         var form = $('#form-delete');
-        var url = 'delete_notifications';
+        var url = 'delete_historiqueMails';
         var data = form.serialize();
 
         $.post(url, data, function (result) {
@@ -87,25 +87,21 @@ $(document).ready(function(){
  * Archive / Actif
  */
 $(document).ready(function(){
-    $('.btn-delete').click(function(e){
+    $('.btn-delete2').click(function(e){
         e.preventDefault();
         var row = $(this).parents('tr');
         var id = row.data('id');
-        var form = $('#form-delete');
+        var form = $('#form-delete2');
         var url = form.attr('action').replace(':MAILSHISTORIQUE_ID', id);
         var data = form.serialize();
 
         $.post(url, data, function(result){
-            $.each(result.info, function(){
-                $('#trashTr_'+this.id).fadeOut();
+            $('#trashTr_'+result.id).fadeOut();
 
-                // Affichage du message avec notiJs
-                if(result.message != null) {
-                    $('#message_info').append(notie.alert(1, result.message, 5));
-                }
-            });
-
-
+            // Affichage du message avec notiJs
+            if(result.message != null) {
+                $('#message_info').append(notie.alert(1, result.message, 5));
+            }
         }).fail(function(){
             sweetAlert('Oups...', 'Une erreur est survenue', 'error');
             row.show();

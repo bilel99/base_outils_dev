@@ -41,7 +41,7 @@ class EnvoieMailsController extends Controller
 
         foreach($users as $key=>$row){
             $mail = $row->email;
-            $email[] = $row->email;
+            $email[] = json_encode($row->email);
             $listEmail[] = implode(',', $email);
         }
 
