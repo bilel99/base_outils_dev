@@ -90,6 +90,9 @@ Route::post('languessearch', ['as' => 'langues.search', 'uses' => 'Admin\Langues
 
 Route::resource('crons', 'Admin\CronsController');
 
+// Clears cache
+Route::get('clearsCache', ['as' => 'clearsCache.reset', 'uses' => 'Admin\ClearsCacheController@reset']);
+
 
 
 

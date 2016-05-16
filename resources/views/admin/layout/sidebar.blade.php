@@ -168,7 +168,7 @@
                             <i class="fa fa-rocket"></i> <span>Vider le cache</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href=""><i class="fa fa-eraser"></i>vider</a></li>
+                            <li class="active"><a href="{{route('clearsCache.reset')}}"><i class="fa fa-eraser"></i>vider</a></li>
                         </ul>
                     </li>
                 </ul>
