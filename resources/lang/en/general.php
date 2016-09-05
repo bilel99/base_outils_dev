@@ -6,4 +6,7 @@ return[
     'email_unique'=>'existing email!',
     'email_required'=>'Email required!',
     'd'=>'disconnect',
+    'general.code_required' => 'required',
+    'general.libelle_required' => 'required',
+    'general.code_unique' => 'not unique code',
 ];

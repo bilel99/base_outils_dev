@@ -36,11 +36,12 @@ class MailsController extends Controller
 
         $mails->setPath('mails');
 
-
+        $message = 'Aucun élément !';
         $info = \App\Mails::with('langues')->orderBy('created_at', 'desc')->get();
         if($request->ajax()){
             return response()->json([
-                'info'     => $info
+                'info'     => $info,
+                'message'  => $message
             ]);
         }
 

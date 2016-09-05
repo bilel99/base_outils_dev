@@ -46,13 +46,9 @@
                                 <i class="fa fa-paper-plane-o pull-left"></i><span>Envoie de mails global<br><small>à tous le mondes</small></span></a>
 
                         </li>
-                        <li>
-                            <a class="btn btn-lg btn-success " href="">
-                                <i class="fa fa-envelope-o pull-left"></i><span>Envoie de mails personnalisé<br><small>à certaines personnes</small></span></a>
 
-                        </li>
                         <li>
-                            <a class="btn btn-lg btn-danger" href="">
+                            <a class="btn btn-lg btn-danger" data-toggle="modal" data-target="#envoiePers">
                                 <i class="fa fa-hourglass-end pull-left"></i><span>Envoie de mails pré-définie<br><small>Configuration de crons</small></span></a>
 
                         </li>
@@ -70,27 +66,61 @@
                                     <h4 class="modal-title">Envoie d'un mail à tous les utilisateurs</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Message ici</p>
+                                    <p>Vous êtes sur le point d'envoyé un mail à tous les utilisateurs de ce site</p>
 
 
                                     {!! Form::open(['method' => 'post', 'url' => route('envoieMails.all')]) !!}
-                                        {!! Form::label('sujet', 'Sujet *', array('class' => 'col-md-4 col-md-offset-4 control-label')) !!}
-                                        <input type="text" name="sujet" placeholder="sujet" class="form-control" required />
+                                    {!! Form::label('sujet', 'Sujet *', array('class' => 'col-md-4 col-md-offset-4 control-label')) !!}
+                                    <input type="text" name="sujet" placeholder="sujet" class="form-control" required />
 
-                                        {!! Form::label('objet', 'Objet *', array('class' => 'col-md-4 col-md-offset-4 control-label')) !!}
-                                        <input type="text" name="objet" id="objet" placeholder="Objet" class="form-control" required />
+                                    {!! Form::label('objet', 'Objet *', array('class' => 'col-md-4 col-md-offset-4 control-label')) !!}
+                                    <input type="text" name="objet" id="objet" placeholder="Objet" class="form-control" required />
 
-                                        {!! Form::label('expediteur', 'Expéditeur *', array('class' => 'col-md-4 col-md-offset-4 control-label')) !!}
-                                        <input type="text" name="exp" id="exp" placeholder="Expéditeur" class="form-control" required />
+                                    {!! Form::label('expediteur', 'Expéditeur *', array('class' => 'col-md-4 col-md-offset-4 control-label')) !!}
+                                    <input type="text" name="exp" id="exp" placeholder="Expéditeur" class="form-control" required />
 
-                                        {!! Form::label('message', 'Message *', array('class' => 'col-md-4 col-md-offset-4 control-label')) !!}
-                                        <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Votre message ici" required></textarea>
+                                    {!! Form::label('message', 'Message *', array('class' => 'col-md-4 col-md-offset-4 control-label')) !!}
+                                    <textarea name="message" id="message" cols="30" rows="10" class="form-control" placeholder="Votre message ici" required></textarea>
 
 
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                                            <?=Form::submit('Envoyé', ['class' => 'btn btn-info', 'name' => 'send'])?>
-                                        </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                        <?=Form::submit('Envoyé', ['class' => 'btn btn-info', 'name' => 'send'])?>
+                                    </div>
+                                    {!! Form::close() !!}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div class="modal fade" id="envoiePers" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title">Envoie d'un mail Personnalisé</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Vous êtes sur le point d'envoyé un mail personnalisé</p>
+
+
+                                    {!! Form::open(['method' => 'post', 'url' => route('envoieMails.pers')]) !!}
+
+                                    {!! Form::label('sujet', 'Sujet *', array('class' => 'col-md-4 col-md-offset-4 control-label')) !!}
+                                    <select name="sujet" id="sujet" class="form-control">
+                                        <option value="anniversaire">Anniversaire</option>
+                                        <option value="newsletters">Newsletters</option>
+                                    </select>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                                        <?=Form::submit('Envoyé', ['class' => 'btn btn-info', 'name' => 'send'])?>
+                                    </div>
                                     {!! Form::close() !!}
 
                                 </div>

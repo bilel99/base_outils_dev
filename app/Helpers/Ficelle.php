@@ -64,6 +64,16 @@ class Ficelle
         return $new_string;
     }
 
+
+    // Retirer les simple quote et double quote d'une chaine de caractère
+    function trimQuote($string){
+        $new_string = str_replace('"',' ',$string);
+        $new_string = str_replace("''"," ",$new_string);
+
+        return $new_string;
+    }
+
+
     // Coupe la chaine $str avec une limite max de $limite, mais sans couper au milieu d'un mot ou d'une entite HTML
     function subword($str, $limite)
     {

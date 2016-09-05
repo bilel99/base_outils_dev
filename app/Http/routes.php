@@ -76,6 +76,7 @@ Route::post('delete_historiqueMails', ['as' => 'mailsHistorique.deleteAll', 'use
 Route::get('envoieMails', ['as' => 'envoieMails.index', 'uses' => 'Admin\EnvoieMailsController@index']);
 Route::post('envoieMailsSend/{users}', ['as' => 'envoieMails.send', 'uses' => 'Admin\EnvoieMailsController@send']);
 Route::post('envoieMailsAll', ['as' => 'envoieMails.all', 'uses' => 'Admin\EnvoieMailsController@all']);
+Route::post('envoieMailsPers', ['as' => 'envoieMails.pers', 'uses' => 'Admin\EnvoieMailsController@pers']);
 
 
 Route::resource('users', 'Admin\UsersController');
@@ -93,6 +94,9 @@ Route::resource('crons', 'Admin\CronsController');
 // Clears cache
 Route::get('clearsCache', ['as' => 'clearsCache.reset', 'uses' => 'Admin\ClearsCacheController@reset']);
 
+// Paramètres
+Route::resource('params', 'Admin\ParamsController');
+Route::post('paramssearch', ['as' => 'params.search', 'uses' => 'Admin\ParamsController@search']);
 
 
 

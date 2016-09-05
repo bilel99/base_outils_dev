@@ -1,10 +1,11 @@
 @extends('admin.layout.home')
 
 @section('content')
+
     <section class="content-header">
         <h1>
             Pages
-            <small>Mails - Edition</small>
+            <small>Paramètre - Création -</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ ucfirst(route('bo')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -28,15 +29,21 @@
                 </div>
 
                 <div class="panel panel-login">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <p>Création d'un paramètre</p>
+                        </div>
+                        <hr>
+                    </div>
+
 
                     <div class="row">
                         <div style="margin-left: 40px;" class="col-md-11 col-md-offset-0">
-                            {!! Form::open(['method' => 'put', 'url' => route('mails.update', $mails->id)]) !!}
+                            {!! Form::open(['method' => 'post', 'url' => route('params.store')]) !!}
                             <div class="panel with-nav-tabs panel-primary">
                                 <div class="panel-heading">
                                     <ul class="nav nav-tabs">
-                                        <li class="active"><a href="#tab1primary" data-toggle="tab">expéditeur</a></li>
-                                        <li><a href="#tab2primary" data-toggle="tab">contenu</a></li>
+                                        <li class="active"><a href="#tab1primary" data-toggle="tab">Contenu</a></li>
                                     </ul>
                                 </div>
                                 <div class="panel-body">
@@ -47,7 +54,6 @@
                                             <div class="panel panel-login">
                                                 <div class="panel-heading">
                                                     <div class="row">
-                                                        <p>Edition d'un mail</p>
                                                     </div>
                                                     <hr>
                                                 </div>
@@ -57,33 +63,21 @@
                                                             <!-- List Select via BDD (function List(-laravel-)) -->
                                                             <div class="form-group">
                                                                 {!! Form::label('id_langues', 'langues *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::select('id_langues', $langues, $mails->id_langues, ['class'=>'form-control']) !!}
+                                                                {!! Form::select('id_langues', $langues, '', ['class'=>'form-control']) !!}
                                                             </div>
                                                             <!-- Fin function List -->
 
                                                             <div class="form-group">
-                                                                {!! Form::label('type', 'type *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::text('type', $mails->type, array('class'=>'form-control', 'name'=>'type', 'placeholder' => 'type', 'required'=>'required')) !!}
+                                                                {!! Form::label('code', 'code *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                {!! Form::text('code', '', array('class'=>'form-control', 'name'=>'code', 'placeholder' => 'code', 'required'=>'required')) !!}
                                                             </div>
 
                                                             <div class="form-group">
-                                                                {!! Form::label('nom', 'nom *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::text('nom', $mails->nom, array('class'=>'form-control', 'name'=>'nom', 'placeholder' => 'nom', 'required'=>'required')) !!}
+                                                                {!! Form::label('libelle', 'libelle *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                {!! Form::text('libelle', '', array('class'=>'form-control', 'name'=>'libelle', 'placeholder' => 'libelle', 'required'=>'required')) !!}
                                                             </div>
 
-                                                            <div class="form-group">
-                                                                {!! Form::label('exp_nom', 'nom de l\'expéditeur *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::text('exp_nom', $mails->exp_nom, array('class'=>'form-control', 'name'=>'exp_nom', 'placeholder' => 'nom de l\'expéditeur', 'required'=>'required')) !!}
-                                                            </div>
 
-                                                            <div class="form-group">
-                                                                {!! Form::label('exp_email', 'email de l\'expéditeur *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::email('exp_email', $mails->exp_email, array('class'=>'form-control', 'name'=>'exp_email', 'placeholder' => 'email de l\'expéditeur', 'required'=>'required')) !!}
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                {!! Form::label('sujet', 'sujet *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::text('sujet', $mails->sujet, array('class'=>'form-control', 'name'=>'sujet', 'placeholder' => 'sujet', 'required'=>'required')) !!}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -92,12 +86,7 @@
 
 
                                         </div>
-                                        <div class="tab-pane fade" id="tab2primary">
-                                            <div class="form-group">
-                                                {!! Form::label('contenue', 'contenue *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                {!! Form::textarea('contenue', $mails->contenue, array('class'=>'form-control', 'name'=>'contenue', 'placeholder' => 'contenue', 'required'=>'required')) !!}
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -115,16 +104,14 @@
 
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
     </div>
 
     @stop
-
-
-
-
 
 
 
@@ -143,7 +130,7 @@
                 "searchreplace visualblocks code fullscreen",
                 "insertdatetime media table contextmenu paste"
             ],
-            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+            toolbar: "bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
         });
     </script-->
 

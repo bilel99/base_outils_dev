@@ -71,6 +71,10 @@ class RouteServiceProvider extends ServiceProvider
             App::abort(500);
         });
 
+        $router->model('params', 'App\Params', function(){
+            App::abort(500);
+        });
+
 
 
 

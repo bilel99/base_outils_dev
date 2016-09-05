@@ -137,7 +137,7 @@
 
     @section('footer')
 
-    <!-- TINY MCE >
+            <!-- TINY MCE >
     <script src="{{ asset('plugins/tinymce/jquery.tinymce.min.js') }}"></script>
     <script src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>
 

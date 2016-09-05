@@ -139,8 +139,8 @@
                             <i class="fa fa-cogs"></i> <span>Création de paramètre</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href=""><i class="fa fa-list"></i>Liste</a></li>
-                            <li><a href=""><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+                            <li class="active"><a href="{{route('params.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                            <li><a href="{{route('params.create')}}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
                         </ul>
                     </li>
 
