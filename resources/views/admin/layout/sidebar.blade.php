@@ -155,20 +155,50 @@
 
                     <li>
                         <a href="#">
-                            <i class="fa fa-at"></i> <span>Gestions des redirection</span> <i class="fa fa-angle-left pull-right"></i>
+                            <i class="fa fa-rocket"></i> <span>Vider le cache</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href=""><i class="fa fa-list"></i>Liste</a></li>
-                            <li><a href=""><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+                            <li class="active"><a href="{{route('clearsCache.reset')}}"><i class="fa fa-eraser"></i>vider</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </a>
+
+        </li>
+
+
+
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-connectdevelop"></i> <span>CMS</span> <i class="fa fa-angle-left pull-right"></i>
+
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-pagelines"></i> <span>Gestion des tree</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href="{{route('tree.index')}}"><i class="fa fa-list"></i>Liste</a></li>
+                            <li><a href="{{route('tree.create')}}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
                         </ul>
                     </li>
 
                     <li>
                         <a href="#">
-                            <i class="fa fa-rocket"></i> <span>Vider le cache</span> <i class="fa fa-angle-left pull-right"></i>
+                            <i class="fa fa-paperclip"></i> <span>Gestions des templates</span> <i class="fa fa-angle-left pull-right"></i>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="active"><a href="{{route('clearsCache.reset')}}"><i class="fa fa-eraser"></i>vider</a></li>
+                            <li class="active"><a href=""><i class="fa fa-list"></i>Liste</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-black-tie"></i> <span>Gestion des blocs</span> <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href=""><i class="fa fa-eraser"></i>vider</a></li>
                         </ul>
                     </li>
                 </ul>

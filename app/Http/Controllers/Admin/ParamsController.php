@@ -87,10 +87,18 @@ class ParamsController extends Controller
         // Create of database
         $params = new \App\Params;
         $params->id_langues = $request->id_langues;
-        $params->code = $request->code;
-        $params->libelle = $request->libelle;
-        $params->status = 1;
-        $params->save();
+
+        // Vérifier si code existe en bdd
+        $countCode = \App\Params::where('code',$request->code)->count();
+        if($countCode != 0){
+            return redirect('params/create')->withFlashMessageError("Erreur code existant en base de donnée !");
+        }else{
+            $params->code = $request->code;
+            $params->libelle = $request->libelle;
+            $params->status = 1;
+            $params->save();
+        }
+
 
         // Alimentation de la table notificationHistory
         $noti = new \App\NotificationHistory;
@@ -121,9 +129,12 @@ class ParamsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($params)
     {
         // Edition form
+        $langues = \App\Langues::lists('libelle', 'id');
+
+        return view('admin.params.edit', compact('params', 'langues'));
     }
 
     /**
@@ -133,10 +144,26 @@ class ParamsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ParamsRequest $request, $params)
     {
         // Edition of database
+        $params->id_langues = $request->id_langues;
+        $params->code = $request->code;
+        $params->libelle = $request->libelle;
+        $params->save();
+
+        // Alimentation de la table notificationHistory
+        $noti = new \App\NotificationHistory;
+        $noti->id_users = Auth::user()->id;
+        $noti->id_notif = $params->id;
+        $noti->title = 'Un paramètre à été modifier, '.$request->libelle;
+        $noti->description = '';
+        $noti->status = 1;
+        $noti->save();
+
+        return redirect('params')->withFlashMessage("Mise à jours effectué avec succès");
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -144,8 +171,90 @@ class ParamsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function del($params, Request $request){
+        // Alimentation de la table notificationHistory
+        $noti = new \App\NotificationHistory;
+        $noti->id_users = Auth::user()->id;
+        $noti->id_notif = $params->id;
+        $noti->title = 'status paramètre à été supprimé, '.$params->id;
+        $noti->description = '';
+        $noti->status = 1;
+        $noti->save();
+
         // Suppression de paramètre
+        $params->delete();
+
+        $message = 'élément supprimer !';
+        if($request->ajax()){
+            return response()->json([
+                'message' => $message
+            ]);
+        }
+
+        return redirect()->route('params');
     }
+
+
+
+    /**
+     * @param $params
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     */
+    public function statusOff($params, Request $request){
+        $params->status = 0;
+        $params->save();
+
+        // Alimentation de la table notificationHistory
+        $noti = new \App\NotificationHistory;
+        $noti->id_users = Auth::user()->id;
+        $noti->id_notif = $params->id;
+        $noti->title = 'status paramètre à été rendu innactif, '.$params->code;
+        $noti->description = '';
+        $noti->status = 1;
+        $noti->save();
+
+        $info = \App\Params::where('id', '=', $params->id)->get();
+        if($request->ajax()){
+            return response()->json([
+                'id'        => $params->id,
+                'info'      => $info,
+            ]);
+        }
+
+        return redirect()->route('params');
+
+    }
+
+
+    /**
+     * @param $params
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
+     */
+    public function statusOn($params, Request $request){
+        $params->status = 1;
+        $params->save();
+
+        // Alimentation de la table notificationHistory
+        $noti = new \App\NotificationHistory;
+        $noti->id_users = Auth::user()->id;
+        $noti->id_notif = $params->id;
+        $noti->title = 'status paramètre à été rendu actif, '.$params->code;
+        $noti->description = '';
+        $noti->status = 1;
+        $noti->save();
+
+        $info = \App\Params::where('id', '=', $params->id)->get();
+        if($request->ajax()){
+            return response()->json([
+                'id'        => $params->id,
+                'info'     => $info
+            ]);
+        }
+
+        return redirect()->route('params');
+
+    }
+
 }

@@ -1,5 +1,20 @@
 <?php
 
+/**
+ * PAS ENCORE FAIT
+ *
+ * ATTENTION FAIRE LE GROUPAGE AVEC
+ * GROUP
+ * FAIRE AJOUT DE PREFIX AVEC
+ * PREFIX
+ * et ajout de middleware si besoin avec
+ * MIDDLEWARE
+ *
+ * POUR MIEUX ORGANISER LE FICHIER ROUTES.PHP
+ */
+
+
+
 /***************************************
  *
  *              FRONT
@@ -97,8 +112,19 @@ Route::get('clearsCache', ['as' => 'clearsCache.reset', 'uses' => 'Admin\ClearsC
 // Paramètres
 Route::resource('params', 'Admin\ParamsController');
 Route::post('paramssearch', ['as' => 'params.search', 'uses' => 'Admin\ParamsController@search']);
+Route::post('paramsStatusOff/{params}', ['as' => 'params.statusOff', 'uses' => 'Admin\ParamsController@statusOff']);
+Route::post('paramsStatusOn/{params}', ['as' => 'params.statusOn', 'uses' => 'Admin\ParamsController@statusOn']);
+Route::post('paramsDel/{params}', ['as' => 'params.del', 'uses' => 'Admin\ParamsController@del']);
 
 
+/////// CMS /////////
+// Gestion arboresence (pages)
+Route::resource('tree', 'Admin\TreeController');
+
+// Gestion Template
+
+
+// Gestion Block
 
 
 //AUTHENTICATION

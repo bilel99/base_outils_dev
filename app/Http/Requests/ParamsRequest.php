@@ -39,7 +39,7 @@ class ParamsRequest extends Request
     {
         return [
             'id_langues'=>'required',
-            'code'=>'required|unique:params',
+            'code'=>'required',
             'libelle'=>'required'
         ];
     }
