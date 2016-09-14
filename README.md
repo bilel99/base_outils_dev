@@ -1,8 +1,8 @@
 # Outil de base développer sur Laravel Framework
 
-Hello, Cette outils dois permettre à n'importe qu'elle personne qui souhaite créer un site internet avec Laravel Framework
-de bénéficier de base solide, avec laquel il pourra gérer plusieurs chose (par exemple: langue, notif, panier etc ...) directement
-sans devoir passer par la case développer.
+Hello, cet outil doit permettre à n'importe quelle personne qui souhaite créer un site internet avec Laravel Framework de 
+bénéficier de base solide, avec laquelle il pourra gérer plusieurs choses (par exemple: langue, notif, panier etc.) 
+directement sans devoir passer par la case développée. Il pourra ainsi diminuer le temps de dé sur son projet.
 
 Il pourra ainsi diminuer le temps de dev sur son projet :-)
 
