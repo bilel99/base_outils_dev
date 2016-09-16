@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTreeTable extends Migration
+class CreateActuTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,18 @@ class CreateTreeTable extends Migration
      */
     public function up()
     {
-        Schema::create('tree', function (Blueprint $table) {
+        Schema::create('actu', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('id_langues')->unsigned()->nullable();
-            $table->string('nom', 255);
-            $table->string('slug', 255);
+            $table->integer('id_users')->unsigned()->nullable();
+            $table->string('libelle', 255);
+            $table->string('description', 255);
+            $table->string('image', 255);
             $table->enum('status', array('1', '0'));
             $table->timestamps();
 
             $table->foreign('id_langues')->references('id')->on('langues');
+            $table->foreign('id_users')->references('id')->on('users');
         });
     }
 
@@ -31,6 +34,6 @@ class CreateTreeTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tree');
+        Schema::drop('actu');
     }
 }

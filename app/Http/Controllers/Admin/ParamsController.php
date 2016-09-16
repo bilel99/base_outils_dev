@@ -176,7 +176,7 @@ class ParamsController extends Controller
         $noti = new \App\NotificationHistory;
         $noti->id_users = Auth::user()->id;
         $noti->id_notif = $params->id;
-        $noti->title = 'status paramètre à été supprimé, '.$params->id;
+        $noti->title = 'paramètre supprimé, '.$params->id;
         $noti->description = '';
         $noti->status = 1;
         $noti->save();

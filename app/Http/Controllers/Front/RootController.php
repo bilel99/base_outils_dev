@@ -11,8 +11,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Response;
 
 class RootController extends Controller
 {
@@ -62,8 +64,16 @@ class RootController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function register(){
-        return view('auth.register');
+    public function register(Request $request){
+        // AJAX GET ACTU
+        $actu = \App\Actu::with('langues', 'users')->where('status', '=', 1)->orderBy(DB::raw('RAND()'))->take(1)->get();
+        if($request->ajax()){
+            return response()->json([
+                'actu'  =>  $actu
+            ]);
+        }
+
+        return view('auth.register', compact('actu'));
     }
 
 

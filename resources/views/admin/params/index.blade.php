@@ -109,6 +109,8 @@
 
                                         </td>
 
+                                        <td>{{\App\Http\Controllers\Admin\AdminPageController::instanced()->formatDateComplete($row->created_at)}}</td></td>
+
                                         <td class="text-center">
                                             <a class='btn btn-info btn-xs' href="{{route('params.edit', $row->id)}}"><span class="glyphicon glyphicon-edit"></span> Edit</a>
 

@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1>
             Pages
-            <small>Paramètre - Edition</small>
+            <small>Actualités - Edition</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ ucfirst(route('bo')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -31,7 +31,7 @@
 
                     <div class="row">
                         <div style="margin-left: 40px;" class="col-md-11 col-md-offset-0">
-                            {!! Form::open(['method' => 'put', 'url' => route('params.update', $params->id)]) !!}
+                            {!! Form::open(['method' => 'put', 'url' => route('actu.update', $actu->id), 'enctype' => 'multipart/form-data', 'files' => true ]) !!}
                             <div class="panel with-nav-tabs panel-primary">
                                 <div class="panel-heading">
                                     <ul class="nav nav-tabs">
@@ -46,7 +46,7 @@
                                             <div class="panel panel-login">
                                                 <div class="panel-heading">
                                                     <div class="row">
-                                                        <p>Edition d'un mail</p>
+                                                        <p>Edition d'une actualité</p>
                                                     </div>
                                                     <hr>
                                                 </div>
@@ -56,18 +56,30 @@
                                                             <!-- List Select via BDD (function List(-laravel-)) -->
                                                             <div class="form-group">
                                                                 {!! Form::label('id_langues', 'langues *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::select('id_langues', $langues, $params->id_langues, ['class'=>'form-control']) !!}
+                                                                {!! Form::select('id_langues', $langues, $actu->id_langues, ['class'=>'form-control']) !!}
                                                             </div>
                                                             <!-- Fin function List -->
 
-                                                            <div class="form-group">
-                                                                {!! Form::label('code', 'code *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::text('code', $params->code, array('class'=>'form-control', 'name'=>'code', 'placeholder' => 'code', 'required'=>'required')) !!}
-                                                            </div>
 
                                                             <div class="form-group">
                                                                 {!! Form::label('libelle', 'libelle *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::text('libelle', $params->libelle, array('class'=>'form-control', 'name'=>'libelle', 'placeholder' => 'libelle', 'required'=>'required')) !!}
+                                                                {!! Form::text('libelle', $actu->libelle, array('class'=>'form-control', 'name'=>'libelle', 'placeholder' => 'libelle', 'required'=>'required')) !!}
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                {!! Form::label('description', 'description *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                {!! Form::textarea('description', $actu->description, array('class'=>'form-control', 'name'=>'description', 'placeholder' => 'description')) !!}
+                                                            </div>
+
+
+                                                            <div class="form-group">
+                                                                {!! Form::hidden('img_populate', $actu->image, array('class'=>'form-control', 'name'=>'img_populate', 'placeholder' => 'img_populate')) !!}
+                                                            </div>
+
+
+                                                            <div class="form-group">
+                                                                {!! Form::label('image', 'image', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                {!! Form::file('image', ["class"=>"form-control",  "value"=>$actu->image]) !!}
                                                             </div>
 
                                                         </div>
@@ -111,7 +123,7 @@
 
     @section('footer')
 
-            <!-- TINY MCE >
+            <!-- TINY MCE -->
     <script src="{{ asset('plugins/tinymce/jquery.tinymce.min.js') }}"></script>
     <script src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>
 
@@ -125,7 +137,7 @@
             ],
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
         });
-    </script-->
+    </script>
 
 
 @stop

@@ -8,6 +8,7 @@
         <link href="{{ asset('front/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css') }}" rel="stylesheet" />
 
         <!-- CSS -->
+        <link href="{{ asset('front/css/auth.css') }}" rel="stylesheet">
         <link href="{{ asset('front/css/login.css') }}" rel="stylesheet" />
 
 
@@ -16,6 +17,28 @@
         <script src="{{ asset('front/bootstrap-3.3.6-dist/js/npm.js') }}"></script>
 
         <link href="{{ asset('front/css/auth.css') }}" rel="stylesheet">
+        <link href="{{ asset('front/css/login.css') }}" rel="stylesheet" />
+
+
+        <!-- jQuery 2.1.3 -->
+        <script src="{{ asset('admin/AdminLTE-2.3.0/plugins/jQuery/jQuery2.1.3.min.js') }}"></script>
+        <!-- jQueryUI 1.11.4 -->
+        <script src="{{ asset('admin/AdminLTE-2.3.0/plugins/jQueryUI/jQueryUi1.11.4.min.js') }}"></script>
+
+
+        <!-- AJAX -->
+        <script src="{{ asset('front/ajax/actu/index.js') }}" type="text/javascript"></script>
+
+
+        <style>
+            .image{
+                margin-top: 7%;
+            }
+            .center{
+                text-align: center;
+            }
+
+        </style>
 
     </head>
 <body>
@@ -38,10 +61,14 @@
                 <h3 class="panel-title">{{Lang::get('auth.title2')}}</h3>
             </div>
 
-            <div class="panel-body">
-                test
-                <div id="titre_actu">
-                    test
+            <div class="col-md-5 image">
+                <p class="center"><b><i>En cours de chargement ...</i></b></p>
+            </div>
+
+            <div class="col-md-1 panel-body">
+                <div class="titre">
+                </div>
+                <div class="description">
                 </div>
             </div>
 

@@ -117,14 +117,11 @@ Route::post('paramsStatusOn/{params}', ['as' => 'params.statusOn', 'uses' => 'Ad
 Route::post('paramsDel/{params}', ['as' => 'params.del', 'uses' => 'Admin\ParamsController@del']);
 
 
-/////// CMS /////////
-// Gestion arboresence (pages)
-Route::resource('tree', 'Admin\TreeController');
-
-// Gestion Template
-
-
-// Gestion Block
+// Actualités
+Route::resource('actu', 'Admin\ActuController');
+Route::post('actuStatusOff/{actu}', ['as' => 'actu.statusOff', 'uses' => 'Admin\ActuController@statusOff']);
+Route::post('actuStatusOn/{actu}', ['as' => 'actu.statusOn', 'uses' => 'Admin\ActuController@statusOn']);
+Route::post('actuDel/{actu}', ['as' => 'actu.del', 'uses' => 'Admin\ActuController@del']);
 
 
 //AUTHENTICATION

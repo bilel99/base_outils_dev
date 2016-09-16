@@ -1,4 +1,7 @@
 /**
+ * Created by bilel on 16/09/2016.
+ */
+/**
  * Created by bilel on 06/09/2016.
  */
 /**
@@ -7,7 +10,7 @@
 $(document).ready(function(){
 
     var row = $(this).parents('tr');
-    var url = 'params';
+    var url = 'actu';
 
     $.get(url, function(result){
         $.each(result.info, function(){
@@ -41,7 +44,7 @@ $(document).ready(function(){
         var row = $(this).parents('tr');
         var id = row.data('id');
         var form = $('#form-innactif');
-        var url = form.attr('action').replace(':PARAMS_ID', id);
+        var url = form.attr('action').replace(':ACTU_ID', id);
         var data = form.serialize();
 
         $.post(url, data, function(result){
@@ -68,7 +71,7 @@ $(document).ready(function(){
         var row = $(this).parents('tr');
         var id = row.data('id');
         var form = $('#form-actif');
-        var url = form.attr('action').replace(':PARAMS_ID', id);
+        var url = form.attr('action').replace(':ACTU_ID', id);
         var data = form.serialize();
 
         $.post(url, data, function(result){
@@ -93,7 +96,7 @@ $(document).ready(function(){
         var row = $(this).parents('tr');
         var id = row.data('id');
         var form = $('#form-del');
-        var url = form.attr('action').replace(':PARAMS_ID', id);
+        var url = form.attr('action').replace(':ACTU_ID', id);
         var data = form.serialize();
 
         $.post(url, data, function(result){

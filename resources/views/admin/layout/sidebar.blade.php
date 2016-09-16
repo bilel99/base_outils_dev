@@ -47,7 +47,7 @@
 
         <li class="treeview">
             <a href="#">
-                <i class="fa fa-newspaper-o"></i> <span>Gestions des Newsletters</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-hacker-news"></i> <span>Gestions des Newsletters</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
                 <li class="active"><a href="{{route('newsletters.index')}}"><i class="fa fa-list"></i>Liste</a></li>
@@ -65,6 +65,18 @@
                 <li class="active"><a href="{{route('notifications.index')}}"><i class="fa fa-list"></i>Liste</a></li>
             </ul>
         </li>
+
+
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-newspaper-o"></i> <span>Actualités</span> <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li class="active"><a href="{{ route('actu.index') }}"><i class="fa fa-list"></i>Liste</a></li>
+                <li><a href="{{ route('actu.create') }}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
+            </ul>
+        </li>
+
 
 
 
@@ -164,88 +176,6 @@
                 </ul>
             </a>
 
-        </li>
-
-
-
-
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-connectdevelop"></i> <span>CMS</span> <i class="fa fa-angle-left pull-right"></i>
-
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-pagelines"></i> <span>Gestion des tree</span> <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="active"><a href="{{route('tree.index')}}"><i class="fa fa-list"></i>Liste</a></li>
-                            <li><a href="{{route('tree.create')}}"><i class="fa fa-plus-circle"></i>Ajouter</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-paperclip"></i> <span>Gestions des templates</span> <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="active"><a href=""><i class="fa fa-list"></i>Liste</a></li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-black-tie"></i> <span>Gestion des blocs</span> <i class="fa fa-angle-left pull-right"></i>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="active"><a href=""><i class="fa fa-eraser"></i>vider</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </a>
-
-        </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <li class="treeview">
-            <a href="#">
-                <i class="fa fa-share"></i> <span>Multilevel</span>
-                <i class="fa fa-angle-left pull-right"></i>
-            </a>
-            <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-                <li>
-                    <a href="#"><i class="fa fa-circle-o"></i> Level One <i class="fa fa-angle-left pull-right"></i></a>
-                    <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> Level Two</a></li>
-                        <li>
-                            <a href="#"><i class="fa fa-circle-o"></i> Level Two <i class="fa fa-angle-left pull-right"></i></a>
-                            <ul class="treeview-menu">
-                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                                <li><a href="#"><i class="fa fa-circle-o"></i> Level Three</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
-            </ul>
         </li>
 
     </ul>

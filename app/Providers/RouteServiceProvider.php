@@ -75,7 +75,7 @@ class RouteServiceProvider extends ServiceProvider
             App::abort(500);
         });
 
-        $router->model('tree', 'App\Tree', function(){
+        $router->model('actu', 'App\Actu', function(){
             App::abort(500);
         });
 

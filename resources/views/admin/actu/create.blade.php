@@ -5,7 +5,7 @@
     <section class="content-header">
         <h1>
             Pages
-            <small>Paramètre - Création -</small>
+            <small>Actualités - Création -</small>
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{ ucfirst(route('bo')) }}"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -31,7 +31,7 @@
                 <div class="panel panel-login">
                     <div class="panel-heading">
                         <div class="row">
-                            <p>Création d'un paramètre</p>
+                            <p>Création d'une ACTU</p>
                         </div>
                         <hr>
                     </div>
@@ -39,7 +39,7 @@
 
                     <div class="row">
                         <div style="margin-left: 40px;" class="col-md-11 col-md-offset-0">
-                            {!! Form::open(['method' => 'post', 'url' => route('params.store')]) !!}
+                            {!! Form::open(['method' => 'post', 'url' => route('actu.store'), 'enctype' => 'multipart/form-data', 'files' => true ]) !!}
                             <div class="panel with-nav-tabs panel-primary">
                                 <div class="panel-heading">
                                     <ul class="nav nav-tabs">
@@ -68,47 +68,52 @@
                                                             <!-- Fin function List -->
 
                                                             <div class="form-group">
-                                                                {!! Form::label('code', 'code *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
-                                                                {!! Form::text('code', '', array('class'=>'form-control', 'name'=>'code', 'placeholder' => 'code', 'required'=>'required')) !!}
-                                                            </div>
-
-                                                            <div class="form-group">
                                                                 {!! Form::label('libelle', 'libelle *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
                                                                 {!! Form::text('libelle', '', array('class'=>'form-control', 'name'=>'libelle', 'placeholder' => 'libelle', 'required'=>'required')) !!}
                                                             </div>
 
-
+                                                            <div class="form-group">
+                                                                {!! Form::label('description', 'description *', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                {!! Form::textarea('description', '', array('class'=>'form-control', 'name'=>'description', 'placeholder' => 'description')) !!}
                                                             </div>
+
+                                                            <div class="form-group">
+                                                                {!! Form::label('image', 'image', array('class' => 'col-md-4 col-md-offset-5 control-label')) !!}
+                                                                {!! Form::file('image', ["class"=>"form-control",  "value"=>old('image')]) !!}
+                                                            </div>
+
+
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-
-
                                         </div>
 
+
                                     </div>
+
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-10 col-sm-offset-1">
-                                        <input type="submit" name="submit" id="submit" class="form-control btn btn-register" value="CREATE">
-                                    </div>
-                                </div>
-                            </div>
-
-                            {!! Form::close() !!}
-
-
                         </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1">
+                                    <input type="submit" name="submit" id="submit" class="form-control btn btn-register" value="CREATE">
+                                </div>
+                            </div>
+                        </div>
+
+                        {!! Form::close() !!}
+
+
                     </div>
-
-
                 </div>
+
+
             </div>
         </div>
+    </div>
     </div>
 
     @stop
@@ -118,7 +123,7 @@
 
     @section('footer')
 
-            <!-- TINY MCE >
+            <!--TINY MCE -->
     <script src="{{ asset('plugins/tinymce/jquery.tinymce.min.js') }}"></script>
     <script src="{{ asset('plugins/tinymce/tinymce.min.js') }}"></script>
 
@@ -132,7 +137,7 @@
             ],
             toolbar: "bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
         });
-    </script-->
+    </script>
 
 
 @stop
