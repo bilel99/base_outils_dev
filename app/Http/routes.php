@@ -14,7 +14,6 @@
  */
 
 
-
 /***************************************
  *
  *              FRONT
@@ -36,24 +35,7 @@ Route::post('password/email', array('as' => 'password/email', 'uses' => 'Front\R
 Route::get('password/reset', array('as' => 'password/reset', 'uses' => 'Front\RootController@getReset'));
 Route::post('password/reset', array('as' => 'password/reset', 'uses' => 'Front\RootController@postReset'));
 
-
-
 Route::get('/', ['as' => 'home', 'uses' => 'Front\HomePageController@index']);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /***************************************

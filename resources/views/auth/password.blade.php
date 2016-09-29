@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<title>{{\Config::get('constante.nom_code')}}</title>
+	<head>
+		<title>{{\Config::get('constante.nom_code')}}</title>
 
 		<!-- Bootstrap -->
 		<link href="{{ asset('front/bootstrap-3.3.6-dist/css/bootstrap.min.css') }}" rel="stylesheet" />
 		<link href="{{ asset('front/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css') }}" rel="stylesheet" />
 
 		<!-- CSS -->
+		<link href="{{ asset('front/css/auth.css') }}" rel="stylesheet">
 		<link href="{{ asset('front/css/login.css') }}" rel="stylesheet" />
 
 
@@ -15,10 +16,14 @@
 		<script src="{{ asset('front/bootstrap-3.3.6-dist/js/bootstrap.min.js') }}"></script>
 		<script src="{{ asset('front/bootstrap-3.3.6-dist/js/npm.js') }}"></script>
 
-
 		<link href="{{ asset('front/css/auth.css') }}" rel="stylesheet">
+		<link href="{{ asset('front/css/login.css') }}" rel="stylesheet" />
 
-		<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
+
+		<!-- jQuery 2.1.3 -->
+		<script src="{{ asset('admin/AdminLTE-2.3.0/plugins/jQuery/jQuery2.1.3.min.js') }}"></script>
+		<!-- jQueryUI 1.11.4 -->
+		<script src="{{ asset('admin/AdminLTE-2.3.0/plugins/jQueryUI/jQueryUi1.11.4.min.js') }}"></script>
 
 	</head>
 <body>

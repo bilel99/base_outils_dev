@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>{{\Config::get('constante.nom_code')}}</title>
+    <head>
+        <title>{{\Config::get('constante.nom_code')}}</title>
 
 
-    <!-- Bootstrap -->
-    <link href="{{ asset('front/bootstrap-3.3.6-dist/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('front/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css') }}" rel="stylesheet" />
+        <!-- Bootstrap -->
+        <link href="{{ asset('front/bootstrap-3.3.6-dist/css/bootstrap.min.css') }}" rel="stylesheet" />
+        <link href="{{ asset('front/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css') }}" rel="stylesheet" />
 
-    <!-- CSS -->
-    <link href="{{ asset('front/css/login.css') }}" rel="stylesheet" />
+        <!-- CSS -->
+        <link href="{{ asset('front/css/login.css') }}" rel="stylesheet" />
 
 
-    <!-- Bootstrap -->
-    <script src="{{ asset('front/bootstrap-3.3.6-dist/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('front/bootstrap-3.3.6-dist/js/npm.js') }}"></script>
+        <!-- Bootstrap -->
+        <script src="{{ asset('front/bootstrap-3.3.6-dist/js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('front/bootstrap-3.3.6-dist/js/npm.js') }}"></script>
 
-    <!-- JS -->
-    <script src="{{ asset('front/js/login.js') }}"></script>
+        <!-- JS -->
+        <script src="{{ asset('front/js/login.js') }}"></script>
 
-</head>
+    </head>
 <body>
 
 <div id="wrapper">

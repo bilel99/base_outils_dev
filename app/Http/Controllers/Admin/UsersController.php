@@ -152,6 +152,7 @@ class UsersController extends Controller
             //$last_users = \App\Users::orderBy('id', 'desc')->limit(1)->get();
             $last_users = $users->id;
 
+
             // Alimentation de la table notificationHistory
             $noti = new \App\NotificationHistory;
             $noti->id_users = Auth::user()->id;

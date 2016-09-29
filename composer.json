@@ -21,10 +21,10 @@
             "database"
         ],
         "files": [
-            "app/Helpers/function.php",
-            "app/Helpers/Dates.php",
+            "app/Helpers/DatesSecondary.php",
             "app/Helpers/Ficelle.php",
-            "app/Helpers/MyFunction.php"
+            "app/Helpers/MyFunction.php",
+            "app/Http/Controllers/Traits/NotifyFunctions.php"
 
         ],
         "psr-4": {

@@ -6,7 +6,7 @@
  * Date: 01/05/2016
  * Time: 23:00
  */
-class Dates
+class DatesSecondary
 {
     var $today;
     var $tableauJours;
