@@ -54,7 +54,7 @@ class EnvoieMailsController extends Controller
 
             $notificationFunction = new EnvoieMailsController();
             $notificationFunction->historyMails(1, 'mails global', Input::get('exp'), Input::get('exp'), Input::get('exp'), Input::get('sujet'), Input::get('message'));
-            $notificationFunction->historyNotifications(Auth::user()->id, null, Input::get('title'), null, 1);
+            $notificationFunction->historyNotifications(Auth::user()->id, null, 'Envoie mail avec success '.Input::get('title'), null, 1);
 
         }
 

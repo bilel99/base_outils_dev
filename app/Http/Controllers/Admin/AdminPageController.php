@@ -17,6 +17,14 @@ class AdminPageController extends Controller
 
 
     /**
+     * Récupération route courante:
+        $route = Route::current();
+        $name = Route::currentRouteName();
+        $action = Route::currentRouteAction();
+     */
+
+
+    /**
      * @return Dates
      */
     public static function instanced(){
