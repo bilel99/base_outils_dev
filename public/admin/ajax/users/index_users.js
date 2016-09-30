@@ -20,10 +20,8 @@ $(document).ready(function(){
                 $('#valable_'+this.id).toggle();
 
                 // Affichage du message avec notiJs
-                if(result.info.length == 0) {
-                    if (result.message != null) {
-                        $('#message_info').append(notie.alert(1, result.message, 5));
-                    }
+                if(result.message != null) {
+                    $('#message_info').append(notie.alert(1, result.message, 5));
                 }
             }else if(this.statut == 'Actif'){
                 $('#valable_'+this.id).hide();
@@ -31,10 +29,8 @@ $(document).ready(function(){
                 $('#trash_'+this.id).toggle();
 
                 // Affichage du message avec notiJs
-                if(result.info.length == 0) {
-                    if (result.message != null) {
-                        $('#message_info').append(notie.alert(1, result.message, 5));
-                    }
+                if(result.message != null) {
+                    $('#message_info').append(notie.alert(1, result.message, 5));
                 }
             }
         });
@@ -70,21 +66,15 @@ $(document).ready(function(){
                     $('#valable_'+this.id).toggle();
 
                     // Affichage du message avec notiJs
-                    if(result.info.length == 0) {
-                        if (result.message != null) {
-                            $('#message_info').append(notie.alert(1, result.message, 5));
-                        }
-                    }
+                    $('#message_info').append(notie.alert(1, result.message, 5));
                 }else if(this.statut == 'Actif'){
                     $('#valable_'+this.id).hide();
                     $('#trash_'+this.id).hide();
                     $('#trash_'+this.id).toggle();
 
                     // Affichage du message avec notiJs
-                    if(result.info.length == 0) {
-                        if (result.message != null) {
-                            $('#message_info').append(notie.alert(1, result.message, 5));
-                        }
+                    if(result.message != null) {
+                        $('#message_info').append(notie.alert(1, result.message, 5));
                     }
                 }
 
@@ -121,21 +111,15 @@ $(document).ready(function(){
                     $('#valable_'+this.id).toggle();
 
                     // Affichage du message avec notiJs
-                    if(result.info.length == 0) {
-                        if (result.message != null) {
-                            $('#message_info').append(notie.alert(1, result.message, 5));
-                        }
-                    }
+                    $('#message_info').append(notie.alert(1, result.message, 5));
                 }else if(this.statut == 'Actif'){
                     $('#valable_'+this.id).hide();
                     $('#trash_'+this.id).hide();
                     $('#trash_'+this.id).toggle();
 
                     // Affichage du message avec notiJs
-                    if(result.info.length == 0) {
-                        if (result.message != null) {
-                            $('#message_info').append(notie.alert(1, result.message, 5));
-                        }
+                    if(result.message != null) {
+                        $('#message_info').append(notie.alert(1, result.message, 5));
                     }
                 }
 

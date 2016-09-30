@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Traits\NotifyFunctions;
 use App\Http\Requests\Gestion_passwordRequest;
 use App\Users;
 use App\Http\Requests\UsersRequest;
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
 
+
 class UsersController extends Controller
 {
+    use NotifyFunctions;
 
     /**
      * Display a listing of the resource.
@@ -153,13 +156,8 @@ class UsersController extends Controller
             $last_users = $users->id;
 
             // Alimentation de la table notificationHistory
-            $noti = new \App\NotificationHistory;
-            $noti->id_users = Auth::user()->id;
-            $noti->id_notif = $last_users;
-            $noti->title = 'Un utilisateurs à été créer, '.substr($request->nom,0, 1).' '.$request->prenom;
-            $noti->description = '';
-            $noti->status = 1;
-            $noti->save();
+            $notificationFunction = new UsersController();
+            $notificationFunction->historyNotifications(Auth::user()->id, $last_users, 'Un utilisateurs à été créer, '.$request->prenom, null, 1);
         }else{
             $users->id_roles_users = $request->id_role;
             $users->nom = $request->nom;
@@ -193,13 +191,8 @@ class UsersController extends Controller
             $last_users = $users->id;
 
             // Alimentation de la table notificationHistory
-            $noti = new \App\NotificationHistory;
-            $noti->id_users = Auth::user()->id;
-            $noti->id_notif = $last_users;
-            $noti->title = 'Un utilisateurs à été créer, '.substr($request->nom,0, 1).' '.$request->prenom;
-            $noti->description = '';
-            $noti->status = 1;
-            $noti->save();
+            $notificationFunction = new UsersController();
+            $notificationFunction->historyNotifications(Auth::user()->id, $last_users, 'Un utilisateurs à été créer, '.$request->prenom, null, 1);
         }
 
         return redirect('users')->withFlashMessage("Création effectué avec succès");
@@ -274,13 +267,8 @@ class UsersController extends Controller
 
 
             // Alimentation de la table notificationHistory
-            $noti = new \App\NotificationHistory;
-            $noti->id_users = Auth::user()->id;
-            $noti->id_notif = $users->id;
-            $noti->title = 'Un utilisateur à été modifié, '.substr($request->nom, 0, 1).' '.$request->prenom;
-            $noti->description = '';
-            $noti->status = 1;
-            $noti->save();
+            $notificationFunction = new UsersController();
+            $notificationFunction->historyNotifications(Auth::user()->id, $users->id, 'Un utilisateur à été modifié, '.$request->prenom, null, 1);
         }else{
             $users->id_roles_users = $request->id_role;
             $users->nom = $request->nom;
@@ -296,13 +284,8 @@ class UsersController extends Controller
 
 
             // Alimentation de la table notificationHistory
-            $noti = new \App\NotificationHistory;
-            $noti->id_users = Auth::user()->id;
-            $noti->id_notif = $users->id;
-            $noti->title = 'Un utilisateur à été modifié, '.substr($request->nom, 0, 1).' '.$request->prenom;
-            $noti->description = '';
-            $noti->status = 1;
-            $noti->save();
+            $notificationFunction = new UsersController();
+            $notificationFunction->historyNotifications(Auth::user()->id, $users->id, 'Un utilisateur à été modifié, '.$request->prenom, null, 1);
         }
 
         return redirect('users')->withFlashMessage("Mise à jours effectué avec succès");
@@ -321,13 +304,8 @@ class UsersController extends Controller
 
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $users->id;
-        $noti->title = 'Un utilisateurs à été rendu inactif, '.substr($request->nom, 0, 1).' '.$request->prenom;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
+        $notificationFunction = new UsersController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $users->id, 'Un utilisateurs à été rendu inactif, '.$request->prenom, null, 1);
 
 
         $info = \App\Users::with('role', 'ville')->where('statut', '=', 'Archivé')->where('id', '=', $users->id)->get();
@@ -357,14 +335,8 @@ class UsersController extends Controller
 
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $users->id;
-        $noti->title = 'Un utilisateur à été rendu actif, '.substr($request->nom, 0, 1).' '.$request->prenom;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
-
+        $notificationFunction = new UsersController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $users->id, 'Un utilisateur à été rendu actif, '.$request->prenom, null, 1);
 
         $info = \App\Users::with('role', 'ville')->where('statut', '=', 'Actif')->where('id', '=', $users->id)->get();
         $message = "Element visible à présent";
@@ -401,13 +373,8 @@ class UsersController extends Controller
 
 
             // Alimentation de la table notificationHistory
-            $noti = new \App\NotificationHistory;
-            $noti->id_users = Auth::user()->id;
-            $noti->id_notif = $users->id;
-            $noti->title = 'Un mot de passe à été modifié, '.substr($users->nom, 0, 1).' '.$users->prenom;
-            $noti->description = '';
-            $noti->status = 1;
-            $noti->save();
+            $notificationFunction = new UsersController();
+            $notificationFunction->historyNotifications(Auth::user()->id, $users->id, 'Un mot de passe à été modifié, '.$request->prenom, null, 1);
         }else if($users->id_roles_users == 1){
             // Envoie mail générateur mot de passe
             // Générer un password par default
@@ -429,13 +396,9 @@ class UsersController extends Controller
             });
 
             // Alimentation de la table notificationHistory
-            $noti = new \App\NotificationHistory;
-            $noti->id_users = Auth::user()->id;
-            $noti->id_notif = $users->id;
-            $noti->title = 'Un mot de passe à été modifié, '.substr($users->nom, 0, 1).' '.$users->prenom;
-            $noti->description = '';
-            $noti->status = 1;
-            $noti->save();
+            // Alimentation de la table notificationHistory
+            $notificationFunction = new UsersController();
+            $notificationFunction->historyNotifications(Auth::user()->id, $users->id, 'Un mot de passe à été modifié, '.$request->prenom, null, 1);
         }
 
         return redirect('users')->withFlashMessage("Modification du mot de passe effectué avec succès");
