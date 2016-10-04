@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Actu;
+use App\Http\Controllers\Traits\NotifyFunctions;
 use App\Http\Requests\ActuRequest;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 
 class NotificationController extends Controller
 {
+    use NotifyFunctions;
 
     /**
      * Display a listing of the resource.
@@ -61,13 +63,8 @@ class NotificationController extends Controller
         }
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif;
-        $noti->title = 'Un historique de notification à été supprimé';
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
+        $notificationFunction = new NotificationController();
+        $notificationFunction->historyNotifications(Auth::user()->id, null, 'Un historique de notification à été supprimé ', null, 1);
 
         $message = "suppression effectué avec succès";
         if($request->ajax()){
