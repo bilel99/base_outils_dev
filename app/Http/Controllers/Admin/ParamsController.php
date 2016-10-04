@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Traits\NotifyFunctions;
 use App\Http\Requests\ParamsRequest;
 use Illuminate\Http\Request;
 
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 
 class ParamsController extends Controller
 {
+    use NotifyFunctions;
+
     /**
      * Display a listing of the resource.
      *
@@ -101,13 +104,8 @@ class ParamsController extends Controller
 
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $params->id;
-        $noti->title = 'Un paramètre à été créer, '.$request->libelle;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
+        $notificationFunction = new ParamsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $params->id, 'Un paramètre à été créer, '.$request->libelle, null, 1);
 
         return redirect('params')->withFlashMessage("Création effectué avec succès");
     }
@@ -153,13 +151,8 @@ class ParamsController extends Controller
         $params->save();
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $params->id;
-        $noti->title = 'Un paramètre à été modifier, '.$request->libelle;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
+        $notificationFunction = new ParamsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $params->id, 'Un paramètre à été modifier, '.$request->libelle, null, 1);
 
         return redirect('params')->withFlashMessage("Mise à jours effectué avec succès");
     }
@@ -173,13 +166,8 @@ class ParamsController extends Controller
      */
     public function del($params, Request $request){
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $params->id;
-        $noti->title = 'paramètre supprimé, '.$params->id;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
+        $notificationFunction = new ParamsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $params->id, 'paramètre supprimé, '.$params->id, null, 1);
 
         // Suppression de paramètre
         $params->delete();
@@ -206,13 +194,8 @@ class ParamsController extends Controller
         $params->save();
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $params->id;
-        $noti->title = 'status paramètre à été rendu innactif, '.$params->code;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
+        $notificationFunction = new ParamsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $params->id, 'status paramètre à été rendu innactif, '.$params->code, null, 1);
 
         $info = \App\Params::where('id', '=', $params->id)->get();
         if($request->ajax()){
@@ -237,13 +220,8 @@ class ParamsController extends Controller
         $params->save();
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $params->id;
-        $noti->title = 'status paramètre à été rendu actif, '.$params->code;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
+        $notificationFunction = new ParamsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $params->id, 'status paramètre à été rendu actif, '.$params->code, null, 1);
 
         $info = \App\Params::where('id', '=', $params->id)->get();
         if($request->ajax()){
