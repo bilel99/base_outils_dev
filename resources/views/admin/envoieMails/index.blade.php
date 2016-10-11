@@ -109,7 +109,7 @@
                                     <p>Vous êtes sur le point d'envoyé un mail personnalisé</p>
 
 
-                                    {!! Form::open(['method' => 'post', 'url' => route('envoieMails.pers')]) !!}
+                                    {!! Form::open(['method' => 'post', 'url' => route('envoieMails.send')]) !!}
 
                                     {!! Form::label('sujet', 'Sujet *', array('class' => 'col-md-4 col-md-offset-4 control-label')) !!}
                                     <select name="sujet" id="sujet" class="form-control">

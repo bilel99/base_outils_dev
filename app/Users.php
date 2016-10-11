@@ -13,7 +13,7 @@ class Users extends Model implements AuthenticatableContract, CanResetPasswordCo
     use Authenticatable, CanResetPassword;
 
     protected $table = 'users';
-    protected $fillable = ['id_villes', 'id_roles_users', 'nom', 'prenom', 'email', 'password', 'adresse', 'telephone', 'statut', 'avatar', 'derniere_connexion'];
+    protected $fillable = ['id_villes', 'id_roles_users', 'nom', 'prenom', 'email', 'password', 'adresse', 'telephone', 'date_naissance', 'statut', 'avatar', 'derniere_connexion'];
 
 
     public function role(){

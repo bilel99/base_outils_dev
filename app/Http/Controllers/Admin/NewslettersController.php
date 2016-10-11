@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Traits\NotifyFunctions;
 use App\Http\Requests\LanguesRequest;
 use Dates;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class NewslettersController extends Controller
 {
+    use NotifyFunctions;
 
     /**
      * Display a listing of the resource.
@@ -70,14 +72,8 @@ class NewslettersController extends Controller
         $newsletters->delete();
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $newsletters->id;
-        $noti->title = 'Une newsletter à été supprimé, '.$request->email;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
-
+        $notificationFunction = new NewslettersController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $newsletters->id, 'Une newsletter à été supprimé, '.$request->email, null, 1);
 
         $message = "suppression effectué avec succès";
         if($request->ajax()){

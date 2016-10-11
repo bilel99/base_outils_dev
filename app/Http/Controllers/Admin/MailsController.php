@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Traits\NotifyFunctions;
 use App\Http\Requests\Gestion_passwordRequest;
 use App\Http\Requests\MailsRequest;
 use App\Users;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Mail;
 
 class MailsController extends Controller
 {
+
+    use NotifyFunctions;
 
     /**
      * Display a listing of the resource.
@@ -122,13 +125,8 @@ class MailsController extends Controller
         $last = $mails->id;
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $last;
-        $noti->title = 'Un mail à été créer, '.$request->nom;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
+        $notificationFunction = new MailsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $last, 'Un mail à été créer, '.$request->nom, null, 1);
 
 
         return redirect('mails')->withFlashMessage("Création effectué avec succès");
@@ -178,14 +176,8 @@ class MailsController extends Controller
 
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $mails->id;
-        $noti->title = 'Un mail à été modifié, '.$request->nom;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
-
+        $notificationFunction = new MailsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $mails->id, 'Un mail à été modifié, '.$request->nom, null, 1);
 
         return redirect('mails')->withFlashMessage("Mise à jours effectué avec succès");
     }
@@ -203,13 +195,8 @@ class MailsController extends Controller
 
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $mails->id;
-        $noti->title = 'Un mail à été rendu inactif, '.$request->nom;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
+        $notificationFunction = new MailsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $mails->id, 'Un mail à été rendu inactif, '.$request->nom, null, 1);
 
 
         $info = \App\Mails::with('langues')->where('statut', '=', 'inactif')->where('id', '=', $mails->id)->get();
@@ -239,14 +226,8 @@ class MailsController extends Controller
 
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $mails->id;
-        $noti->title = 'Un mail à été rendu actif, '.$request->nom;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
-
+        $notificationFunction = new MailsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $mails->id, 'Un mail à été rendu actif, '.$request->nom, null, 1);
 
         $info = \App\Mails::with('langues')->where('statut', '=', 'Actif')->where('id', '=', $mails->id)->get();
         $message = "Element visible à présent";

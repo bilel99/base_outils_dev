@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Traits\NotifyFunctions;
 use App\Http\Requests\Gestion_passwordRequest;
 use App\Users;
 use App\Http\Requests\UsersRequest;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Mail;
 
 class MailsHistoriqueController extends Controller
 {
+    use NotifyFunctions;
 
     /**
      * Display a listing of the resource.
@@ -67,16 +69,9 @@ class MailsHistoriqueController extends Controller
     {
         $mailsHistorique->delete();
 
-
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif = $mailsHistorique->id;
-        $noti->title = 'Un historique de mail à été supprimé, ' . $request->nom;
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
-
+        $notificationFunction = new MailsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, $mailsHistorique->id, 'Un historique de mail à été supprimé, ' . $request->nom, null, 1);
 
         $message = "suppression effectué avec succès";
         if ($request->ajax()) {
@@ -102,13 +97,8 @@ class MailsHistoriqueController extends Controller
         }
 
         // Alimentation de la table notificationHistory
-        $noti = new \App\NotificationHistory;
-        $noti->id_users = Auth::user()->id;
-        $noti->id_notif;
-        $noti->title = 'Un historique de mail à été supprimé';
-        $noti->description = '';
-        $noti->status = 1;
-        $noti->save();
+        $notificationFunction = new MailsController();
+        $notificationFunction->historyNotifications(Auth::user()->id, null, 'Un historique de mail à été supprimé ', null, 1);
 
         $message = "suppression effectué avec succès";
         if($request->ajax()){

@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             $table->string('adresse', 200)->nullable();
             $table->integer('telephone')->nullable();
+            $table->date('date_naissance')->nullable();
             $table->enum('statut', array('Actif', 'Archivé'));
             $table->string('avatar', 255);
             $table->string('forgotPass', 60)->nullable();
